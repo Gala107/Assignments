@@ -12,9 +12,9 @@
 </head>
 
 <body>
-    <div onmouseleave="thankCustomer()">
-        <p id="paragraph" onmouseover="changeParagraph('white')" onmouseout="changeParagraph('rgb(243, 107, 236)')">
-            <span id="sentence" onclick="changeSentence()">
+    <div id="parDiv">
+        <p id="paragraph">
+            <span id="sentence">
                 Simple Simon met a pieman,
             </span> <br>
             Going to the fair,<br>
@@ -38,6 +38,19 @@
             Bids you all adieu!
         </p>
     </div>
+
+    <script type="text/JavaScript">
+        let paragraph = document.getElementById("paragraph");
+        paragraph.addEventListener("mouseover", function() {
+            changeParagraph('white');
+        });
+        paragraph.addEventListener("mouseout", function() {
+            changeParagraph('rgb(243, 107, 236)'); 
+        });
+
+        document.getElementById("sentence").addEventListener("click", changeSentence);       
+        document.getElementById("parDiv").addEventListener("mouseleave", thankCustomer);
+    </script>
 </body>
 
 </html>
