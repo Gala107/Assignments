@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Simon</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <script type="text/JavaScript">
+        function changeParagraph(textColor) {
+            document.getElementById("paragraph").style.color = textColor;
+            document.getElementById("firstSent").style.color = textColor;
+        }
+        function changeSentence() {
+            document.getElementById("firstSent").style.color = "blue";            
+        }
+        function thankCustomer() {
+            alert("Thank you for reading the paragraph!");
+        }
+    </script>
+</head>
+
+<body>
+    <div onmouseleave="thankCustomer()">
+        <p id="paragraph" onmouseover="changeParagraph('white')" onmouseout="changeParagraph('rgb(243, 107, 236)')">
+            <span id="firstSent" onclick="changeSentence()" ondblclick="changeSentence()">
+                Simple Simon met a pieman,
+            </span> <br>
+            Going to the fair,<br>
+            Says Simple Simon to the pieman,<br>
+            Let me taste your ware. <br>
+            Said the pieman unto Simon, <br>
+            Show me first your penny; <br>
+            Says Simple Simon to the pieman, <br>
+            Indeed I have not any.<br>
+            Simple Simon went a-fishing,<br>
+            For to catch a whale;<br>
+            All the water he had got, <br>
+            Was in his mother's pail. <br>
+            Simple Simon went to look <br>
+            If plums grew on a thistle; <br>
+            He pricked his fingers very much, <br>
+            Which made poor Simon whistle. <br>
+            He went for water in a sieve <br>
+            But soon it all fell through <br>
+            And now poor Simple Simon <br>
+            Bids you all adieu!
+        </p>
+    </div>
+</body>
+
+</html>

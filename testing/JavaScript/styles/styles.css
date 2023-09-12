@@ -1,0 +1,20 @@
+p {
+    width: 350px;
+    color: rgb(243, 107, 236);
+    font: 1.5em Georgia, serif;
+}
+
+div {
+    border-radius: 20px;
+    box-shadow: 0 4px 16px 0 rgb(160, 67, 137);
+    background: linear-gradient(green, blue);
+    width: 400px;
+    padding: 50px;
+}
+
+.alert {
+    position: absolute;
+    top: 500%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
