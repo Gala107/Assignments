@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Client</title>
+    <link rel="stylesheet" href="styles/client_styles.css">
+</head>
+
+<body>
+    <h1>Create Client</h1><br>
+    <form action="" method="get">
+        <details>
+            <summary>Client Information</summary>
+            <table>
+                <tr>
+                    <td>
+                        <label for="firstName"><span class="required">*</span>First Name</label><br>
+                        <input type="text" id="firstName" size="30" required>
+                    </td>
+                    <td>
+                        <label for="lastName"><span class="required">*</span>Last Name</label><br>
+                        <input type="text" id="lastName" size="30" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="required"><label><span class="required">*</span>Category</label>
+                            <input type="radio" id="individual" name="category" value="individual">
+                            <label for="individual">Individual</label>
+                            <input type="radio" id="business" name="category" value="business">
+                            <label for="business">Business</label>
+                    </td>
+                    <td>
+                        <label for="businessType">Business Type</label>
+                        <select id="businessType" name="businessType">
+                            <option value="none">Selet business type</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="residential">Residential</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" rowspan="2">
+                        <div>
+                            <label for="description">Description<br>
+                                <textarea id="description" cols="55" rows="5"></textarea>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr></tr>
+            </table>
+        </details>
+        <details>
+            <summary>Contact Information</summary>
+            <table>
+                <tr>
+                    <td>
+                        <label for="streetAddress">Street Address</label><br>
+                        <input type="text" id="streetAddress" size="30">
+                    </td>
+                    <td>
+                        <label for="streetAddress2">Street Address 2</label><br>
+                        <input type="text" id="streetAddress2" size="30">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="city">City</label><br>
+                        <input type="text" id="city" size="30">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="state">State</label><br>
+                        <input type="text" id="state" size="30">
+                    </td>
+                    <td>
+                        <label for="zipCode">Zip Code</label><br>
+                        <input type="number" id="zipCode" size="6">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="phone"><span class="required">*</span>Phone</label><br>
+                        <input type="text" id="phone" size="30" required>
+                    </td>
+                    <td>
+                        <label for="email">Email</label><br>
+                        <input type="email" id="email" size="40">
+                    </td>
+                </tr>
+            </table>
+        </details>
+        <br>
+        <div class="submitDiv">
+        <input id="submit" type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+
+</html>

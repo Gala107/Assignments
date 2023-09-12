@@ -1,0 +1,75 @@
+details {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 10px;
+    width: 800px;
+}
+
+summary {
+    font-weight: bold;
+    font-size: large;
+    color: cornflowerblue;
+    padding: 10px 10px 15px 10px;
+}
+
+table {
+    width: 800px;
+    align-self: center;
+}
+
+td {
+    text-align: left;
+}
+
+label {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 5px;
+    color: rgb(71, 80, 88);
+
+}
+
+h1 {
+    color: rgb(71, 80, 88);
+    margin-left: 330px;
+}
+
+option {
+    color: rgb(71, 80, 88);
+}
+
+input,
+select {
+    padding: 5px;
+    margin: 5px 5px 5px 0px;
+    border: 1px solid #ccc;
+    color: rgb(71, 80, 88);
+    outline: none;
+}
+
+label textarea {
+    vertical-align: top;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    color: rgb(71, 80, 88);
+    outline: none;
+}
+
+.submitDiv {
+    margin-left: 390px;
+}
+
+#submit {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    color: rgb(71, 80, 88);
+    font-weight: bold;
+    font-size: medium;
+}
+
+.required {
+    color: red;
+}
+
