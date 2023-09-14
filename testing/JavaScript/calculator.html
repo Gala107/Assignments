@@ -26,15 +26,16 @@
             <label for="number2" class="form-label">2nd Number</label><br>
             <input type="number" id="number2" class="form-control" required />
         </div>
-        <!-- <div>
-            <label for="result" class="form-label" id="result">Result</label><br>
-            <input type="button" id="result" disabled readonly />
-            <input type="button" onclick="clearResult()" class="btn btn-primary" value="Reset" />
-        </div> -->
         <div>
-            <label for="result" class="form-label" id="result">Result</label><br>
-            <input type="number" onclick="compute('add')" class="form-control" />
-            <input type="button" onclick="compute('sub')" class="btn btn-primary" id="sub" value="Sub" />
+            <ul>
+                <li>
+                    <label for="result" class="form-label">Result</label><br>
+                    <input type="number" id="result" class="form-control" disabled readonly />
+                </li>
+                <li>
+                    <input type="button" onclick="clearResult()" class="btn btn-primary" id="reset" value="Reset" />
+                </li>
+            </ul>
         </div>
         <div>
             <input type="button" onclick="compute('add')" class="btn btn-primary" id="add" value="Add" />
