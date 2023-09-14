@@ -10,7 +10,7 @@
     height: 500px;
 }
 #reset {
-    margin: 32px 0 0 10px;
+    margin: 30px 0 0 10px;
 }
 input[type=button] {
     margin: 25px 5px 15px 0;
@@ -27,5 +27,5 @@ ul {
     list-style-type: none;
     display: grid;
     grid-template-columns: auto auto;
-    margin-left: -35px;
+    margin-left: -33px;
 }
