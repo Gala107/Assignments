@@ -7,7 +7,7 @@ function changeParagraph(textColor) {
     document.getElementById("sentence").style.color = textColor;
 }
 function changeSentence() {
-    document.getElementById("sentence").style.color = "blue";    
+    document.getElementById("sentence").style.color = "blue"; 
 }
 function thankCustomer() {
     alert("Thank you for reading the paragraph!");
