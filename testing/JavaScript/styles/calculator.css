@@ -1,0 +1,28 @@
+#card{
+    box-shadow: 0 8px 16px 0 rgba(40, 40, 226, 0.623);
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    border-radius: 30px;
+    padding: 50px 30px 30px 60px;
+    margin: 100px;
+    width: 500px;
+    height: 500px;
+}
+/* #result {
+    padding-bottom: -10px;
+} */
+input[type=button] {
+    margin: 25px 5px 15px 0;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+input[type=number]{
+    width: 150px;
+}
+h1{
+    padding: 0 0 30px 0;
+}
+/* .form-control {
+    display: inline-block;
+} */
