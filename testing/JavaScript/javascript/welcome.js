@@ -100,4 +100,31 @@ console.log(addup(3, 6));
 let prompt = require('prompt-sync')();
 let choice = prompt("Enter Your Choice: ");
 console.log(`Choice entered is ${choice}.`);
+console.log("\n ********* \n");
+
+// Accessing object properties
+const student = {
+    name : "Gala",
+    getName() {
+        return this.name;
+    },
+    setName(newName) {
+        this.name = newName;
+    }
+}
+console.log("Getting name by attribute property: " + student.name); // returns: Gala
+console.log("Getting name by accessor name: " + student.getName);  // returns: getName() {return this.name;}
+console.log("Getting name by calling accessor: " + student.getName()); // returns: Gala
+student.setName('Milo');
+console.log("Setting name by calling accessor student.setName('Milo'): " + student.name); // returns: Gala
+console.log("\n ********* \n");
+
+let u = 10;
+let u = 30;
+console.log("\n ********* \n");
+
+
+
+
+
 
