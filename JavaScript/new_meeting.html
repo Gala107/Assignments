@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule Meeting</title>
-    <link rel="stylesheet" href="styles/new_meeting.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script type="text/javascript" src="javascript/javascript.js"></script>
 </head>
 
 <body>
     <h1>Schedule Meeting</h1><br>
-    <form action="" method="get">
-        <details>
-            <summary>Meeting Details</summary>
+    <form action="meeting_info.html" method="get">
+        <fieldset>
+            <legend>Meeting Details</legend>
             <table>
                 <tr>
                     <td>
@@ -45,10 +46,10 @@
                     </td>
                 </tr>
             </table>
-        </details>
+        </fieldset>
         <br>
         <div class="submitDiv">
-            <input id="submit" type="submit" value="Submit">
+            <input id="submit" type="submit" onclick="return validateMeeting()" value="Submit">
         </div>
     </form>
 </body>

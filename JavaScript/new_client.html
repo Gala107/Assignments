@@ -6,32 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Client</title>
-    <link rel="stylesheet" href="styles/new_client.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script type="text/javascript" src="javascript/javascript.js"></script>
 </head>
 
 <body>
     <h1>Create Client</h1><br>
-    <form action="" method="get">
-        <details>
-            <summary>Client Information</summary>
+    <form id="clientForm" action="client_profile.html" method="get">
+        <fieldset>
+            <legend>Client Information</legend>
             <table>
                 <tr>
                     <td>
                         <label for="firstName"><span class="required">*</span>First Name</label><br>
-                        <input type="text" id="firstName" size="30" required>
+                        <input type="text" id="firstName" size="30">
                     </td>
                     <td>
                         <label for="lastName"><span class="required">*</span>Last Name</label><br>
-                        <input type="text" id="lastName" size="30" required>
+                        <input type="text" id="lastName" size="30">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label><span class="required">*</span>Category</label>
-                            <input type="radio" id="individual" name="category" value="individual">
-                            <label for="individual">Individual</label>
-                            <input type="radio" id="business" name="category" value="business">
-                            <label for="business">Business</label>
+                        <label for="category">Category</label>
+                        <input type="radio" id="individual" name="category" value="individual">
+                        <label for="individual">Individual</label>
+                        <input type="radio" id="business" name="category" value="business">
+                        <label for="business">Business</label>
                     </td>
                     <td>
                         <label for="businessType">Business Type</label>
@@ -53,9 +54,9 @@
                 </tr>
                 <tr></tr>
             </table>
-        </details>
-        <details>
-            <summary>Contact Information</summary>
+        </fieldset>
+        <fieldset>
+            <legend>Contact Information</legend>
             <table>
                 <tr>
                     <td>
@@ -85,21 +86,22 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="phone"><span class="required">*</span>Phone</label><br>
-                        <input type="text" id="phone" size="30" required>
+                        <label for="phone">Phone</label><br>
+                        <input type="text" id="phone" size="30">
                     </td>
                     <td>
-                        <label for="email">Email</label><br>
-                        <input type="email" id="email" size="40">
+                        <label for="email"><span class="required">*</span>Email</label><br>
+                        <input type="text" id="email" size="40">
                     </td>
                 </tr>
             </table>
-        </details>
+        </fieldset>
         <br>
         <div class="submitDiv">
-        <input id="submit" type="submit" value="Submit">
+            <input id="submit" type="submit" onclick="return validateClient()" value="Submit">
         </div>
     </form>
+
 </body>
 
 </html>

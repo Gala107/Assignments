@@ -8,7 +8,6 @@
     <title>Simple Simon</title>
 
     <link rel="stylesheet" href="styles/styles.css">
-    <script type="text/javascript" src="javascript/javascript.js"></script>
 </head>
 
 <body>
@@ -41,15 +40,16 @@
 
     <script type="text/JavaScript">
         let paragraph = document.getElementById("paragraph");
-        paragraph.addEventListener("mouseover", function() {
-            changeParagraph('white');
-        });
-        paragraph.addEventListener("mouseout", function() {
-            changeParagraph('rgb(243, 107, 236)'); 
-        });
+        let sentence = document.getElementById("sentence");
 
-        document.getElementById("sentence").addEventListener("click", changeSentence);       
-        document.getElementById("parDiv").addEventListener("mouseleave", thankCustomer);
+        paragraph.addEventListener("mouseover", () => { paragraph.style.color = "white"; sentence.style.color = "white" });
+        paragraph.addEventListener("mouseout", () => { paragraph.style.color = "rgb(243, 107, 236"; sentence.style.color = "rgb(243, 107, 236" });
+
+        sentence.addEventListener("click", () => { sentence.style.color = "blue"; });       
+        
+        document.getElementById("parDiv").addEventListener("mouseleave", 
+            () => {alert("Thank you for reading the paragraph!")});
     </script>
 </body>
+
 </html>
