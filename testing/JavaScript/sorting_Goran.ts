@@ -3,14 +3,16 @@
 
 // In order to pass 'rest' argument into function with multiple parameters,
 // the array('rest' argument) has to be a tuple: have predefined size and predefined elements type.
-let randomNums: [number, number, number, number, number] = [0,0,0,0,0];
-for (let i = 0; i < randomNums.length; i++) {
-    // Generate random integer from 0 to 100 and push on the array
-    randomNums[i] = (Math.floor(Math.random() * 101));
-}
+let randomNums: [number, number, number, number, number] = [
+    Math.floor(Math.random() * 101),
+    Math.floor(Math.random() * 101),
+    Math.floor(Math.random() * 101),
+    Math.floor(Math.random() * 101),
+    Math.floor(Math.random() * 101)
+];
 
-// 'arguments' object is not accessible in arrow functions, therefore expression function,
-// practising with 'arguments'
+// practising with 'arguments' object,
+// it's not accessible in arrow functions, therefore expression function,
 // 'rest' parameter is preferable to 'arguments' object.
 let sortNumbers = function (n1: number, n2: number, n3: number, n4: number, n5: number): string {
     let numbers = Array.from(arguments).sort((a: number, b: number): number => a - b);
