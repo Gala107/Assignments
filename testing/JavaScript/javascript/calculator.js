@@ -8,7 +8,7 @@ function compute(operation){
 
     let resultElem = document.getElementById("result");
     if ("add" == operation){
-        resultElem.value = +num1 + +num2;
+        resultElem.value = eval(num1) + +(num2);
     } else if ("sub" == operation){
         resultElem.value = num1 - num2;
     } else if ("mul" == operation){

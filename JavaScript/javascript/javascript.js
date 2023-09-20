@@ -1,18 +1,23 @@
 function validateMeeting() {
-    // Validate that date is starting today and going into the future.
     let meetingDate = document.getElementById("meetingDate");
 
-    const dateExp = /^[0-9]{4}\-[0-9]{2}-[0-9]{2}$/;
+    // Validate that date has format: yyyy-mm-dd
+    const dateExp = /^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/;
     if (!dateExp.test(meetingDate.value)) {
         alert("Please select meeting date.");
         meetingDate.focus();
         return false;
     }
-// need to work on the code below
-    var today = new Date().getTime();
-    var meetingD = new Date(meetingDate).getTime();
-    alert((today - meetingD) > 0);
-    return true;
+
+    // Validate that meetingDate is set in the future.
+    let today = new Date();
+    let laterDate = new Date(meetingDate.value);
+    let isLaterDate = (laterDate - today) > 0;   
+    if(!isLaterDate) {
+        alert("Please select meeting date.");
+        meetingDate.focus();
+    }
+    return isLaterDate;
 }
 
 function validateClient() {  
@@ -32,7 +37,6 @@ function validateClient() {
     let firstName = document.getElementById("firstName");
     let lastName = document.getElementById("lastName");
     let email = document.getElementById("email");
- 
     if(!firstNameExp.test(firstName.value)){
         alert("Please enter your first name.");
         firstName.focus();
