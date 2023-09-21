@@ -9,8 +9,8 @@ let randomNums = [
     Math.floor(Math.random() * 101),
     Math.floor(Math.random() * 101)
 ];
-// 'arguments' object is not accessible in arrow functions, therefore expression function,
-// practising with 'arguments'
+// practising with 'arguments' object,
+// it's not accessible in arrow functions, therefore expression function,
 // 'rest' parameter is preferable to 'arguments' object.
 let sortNumbers = function (n1, n2, n3, n4, n5) {
     let numbers = Array.from(arguments).sort((a, b) => a - b);
