@@ -1,26 +1,24 @@
-function validateMeeting() {
+function validateMeeting(event) {
     let meetingDate = document.getElementById("meetingDate");
 
     // Validate that date has format: yyyy-mm-dd
     const dateExp = /^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/;
-    if (!dateExp.test(meetingDate.value)) {
-        alert("Please select meeting date.");
-        meetingDate.focus();
-        return false;
-    }
 
     // Validate that meetingDate is set in the future.
     let today = new Date();
     let laterDate = new Date(meetingDate.value);
-    let isLaterDate = (laterDate - today) > 0;   
-    if(!isLaterDate) {
+    let isLaterDate = (laterDate - today) > 0;
+
+    if (!dateExp.test(meetingDate.value) || !isLaterDate) {
         alert("Please select meeting date.");
         meetingDate.focus();
+
+        // Stop event from propagating.
+        event.preventDefault(); 
     }
-    return isLaterDate;
 }
 
-function validateClient() {  
+function validateClient(event) {  
     // Validate that first name contains only letters.
     const firstNameExp = /^[a-zA-Z]+$/;
 
@@ -40,17 +38,14 @@ function validateClient() {
     if(!firstNameExp.test(firstName.value)){
         alert("Please enter your first name.");
         firstName.focus();
-        return false;
-    }
-    if(!lastNameExp.test(lastName.value)){
+        event.preventDefault(); 
+    } else if(!lastNameExp.test(lastName.value)){
         alert("Please enter your last name.");
         lastName.focus();
-        return false;
-    }
-    if(!emailExp.test(email.value)){
+        event.preventDefault(); 
+    } else if(!emailExp.test(email.value)){
         alert("Please enter your email.");
         email.focus();
-        return false;
-    }
-    return true;   
+        event.preventDefault(); 
+    } 
 }
