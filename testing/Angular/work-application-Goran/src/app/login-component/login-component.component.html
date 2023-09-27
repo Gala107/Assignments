@@ -1,0 +1,16 @@
+erffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+<fieldset>
+  <legend>Please Log In</legend>
+  <div>
+    <label for="userName"><span class="required">*</span>User Name</label><br>
+    <input type="text" #userName size="30">
+  </div><br>
+  <div>
+    <label for="password"><span class="required">*</span>Password</label><br>
+    <input type="text" #password size="30">
+  </div>
+  <br>
+  <div class="submitDiv">
+    <input id="submit" type="submit" (click)="validate(userName, password)" value="Submit">
+  </div>
+</fieldset>

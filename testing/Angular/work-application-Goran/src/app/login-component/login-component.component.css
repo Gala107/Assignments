@@ -1,0 +1,54 @@
+fieldset {
+    border: 1px solid cornflowerblue;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+legend {
+    font-weight: bold;
+    font-size: large;
+    color: cornflowerblue;
+    padding: 10px 10px 15px 10px;
+}
+
+label {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 5px;
+    color: rgb(71, 80, 88);
+
+}
+
+input {
+    padding: 5px;
+    margin: 5px 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: rgb(71, 80, 88);
+    outline: none;
+}
+
+.submitDiv {
+    /* To center items in this div!!! */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#submit {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    background-color: cornflowerblue;
+}
+
+.required {
+    color: red;
+}
+
