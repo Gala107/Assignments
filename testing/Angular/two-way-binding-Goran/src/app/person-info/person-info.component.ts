@@ -12,6 +12,6 @@ export class PersonInfoComponent {
     firstName: "", 
     lastName: "",
     email: "",
-    zipCode: 0
+    zipCode: ""
   };
 }

@@ -2,5 +2,5 @@ export interface PersonInfo {
     firstName: string;
     lastName: string;
     email: string;
-    zipCode: number;
+    zipCode: string;
 }
