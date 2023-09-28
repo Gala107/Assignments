@@ -1,0 +1,38 @@
+<!-- 
+Create a component with the below specifications:
+1. Has a view with below inputs
+    a. First name
+    b. Last name
+    c. Email
+    d. Zip code
+  2. Has two-way binding to a model
+  3. Has function to show data changes. 
+-->
+<div>
+
+    <div>
+        <label for="firstName">First Name</label><br>
+        <input type="text" id="firstName" [(ngModel)]="person.firstName" placeholder="First Name">
+    </div>
+    <div>
+        <label for="lastName">Last Name</label><br>
+        <input type="text" id="lastName" [(ngModel)]="person.lastName" placeholder="Last Name">
+    </div>
+    <div>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" [(ngModel)]="person.email" placeholder="Email">
+    </div>
+    <div>
+        <label for="zipCode">Zip Code</label><br>
+        <input type="number" id="zipCode" [(ngModel)]="person.zipCode" placeholder="Zip Code">
+    </div>
+</div>
+<div>
+    <div>{{person.firstName | uppercase}}&nbsp;{{person.lastName | uppercase}} Info</div>
+    <div>
+        <div class="flexy">
+            <div class="float1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:<br>Zip Code:</div>
+            <div class="float2">{{person.email}} <br> {{person.zipCode}}</div>
+        </div>
+    </div>
+</div>

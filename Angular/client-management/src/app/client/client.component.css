@@ -1,0 +1,77 @@
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 0 20px 30px;
+    width: 600px;
+}
+
+legend {
+    font-weight: bold;
+    font-size: large;
+    color: cornflowerblue;
+    padding: 10px 10px 15px 10px;
+}
+
+label {
+    padding: 0px 0px 20px 0px;
+    color: rgb(71, 80, 88);
+}
+
+h1 {
+    color: rgb(71, 80, 88);
+}
+
+option {
+    color: rgb(71, 80, 88);
+}
+
+input,
+select {
+    padding: 5px 5px 5px 0px;
+    margin: 5px 10px 15px 0px;
+    border: 1px solid #ccc;
+    color: rgb(71, 80, 88);
+    outline: none;
+}
+
+label textarea {
+    vertical-align: top;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    color: rgb(71, 80, 88);
+    outline: none;
+}
+
+ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding-left: 15px;
+}
+
+div {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.separated {
+    padding-top: 20px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+#submit {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    color: rgb(71, 80, 88);
+    font-weight: bold;
+    font-size: medium;
+}
+
+.required {
+    color: red;
+}
+
