@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import { ClientObj } from '../client-obj';
 
 @Component({
   selector: 'app-client',
@@ -6,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent {
-  isClientCreated = true;
+  validateClient(clientForm: NgForm) {
+    let formValues = clientForm.value;
+
+    
+
+    clientForm.reset();
+  }
 }

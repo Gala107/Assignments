@@ -2,26 +2,27 @@
     <h1>Create Client</h1>
 </div>
 <fieldset>
+    <form #clientForm="ngForm" (onSubmit)="validateClient(clientForm)"></form>
     <legend>Client Information</legend>
     <ul>
         <li>
             <label for="firstName"><span class="required">*</span>First Name</label><br>
-            <input type="text" id="firstName" size="30">
+            <input type="text" id="firstName" size="30" ngModel>
         </li>
         <li>
             <label for="lastName"><span class="required">*</span>Last Name</label><br>
-            <input type="text" id="lastName" size="30">
+            <input type="text" id="lastName" size="30" ngModel>
         </li>
         <li>
             <label for="category">Category</label>
-            <input type="radio" id="individual" name="category" value="individual">
+            <input type="radio" id="individual" name="category" value="individual" ngModel>
             <label for="individual">Individual</label>
-            <input type="radio" id="business" name="category" value="business">
+            <input type="radio" id="business" name="category" value="business" ngModel>
             <label for="business">Business</label>
         </li>
         <li>
             <label for="businessType">Business Type</label>
-            <select id="businessType" name="businessType">
+            <select id="businessType" name="businessType" ngModel>
                 <option value="none">Selet business type</option>
                 <option value="commercial">Commercial</option>
                 <option value="residential">Residential</option>
@@ -29,7 +30,7 @@
         </li>
         <li>
             <label for="description">Description<br>
-                <textarea id="description" cols="55" rows="5"></textarea>
+                <textarea id="description" cols="55" rows="5" ngModel></textarea>
             </label>
         </li>
         <li></li>
@@ -40,38 +41,37 @@
     <ul>
         <li>
                 <label for="streetAddress">Street Address</label><br>
-                <input type="text" id="streetAddress" size="30">
+                <input type="text" id="streetAddress" size="30" ngModel>
         </li>
             <li>
                 <label for="streetAddress2">Street Address 2</label><br>
-                <input type="text" id="streetAddress2" size="30">
+                <input type="text" id="streetAddress2" size="30" ngModel>
             </li>
             <li>
                 <label for="city">City</label><br>
-                <input type="text" id="city" size="30">
+                <input type="text" id="city" size="30" ngModel>
             </li>
             <li></li>
             <li>
                 <label for="state">State</label><br>
-                <input type="text" id="state" size="30">
+                <input type="text" id="state" size="30" ngModel>
             </li>
             <li>
                 <label for="zipCode">Zip Code</label><br>
-                <input type="number" id="zipCode" size="6">
+                <input type="number" id="zipCode" size="6" ngModel>
             </li>
             <li></li><li></li>
             <li class="separated">
                 <label for="phone">Phone</label><br>
-                <input type="text" id="phone" size="20">
+                <input type="text" id="phone" size="20" ngModel>
             </li>
             <li class="separated">
                 <label for="email"><span class="required">*</span>Email</label><br>
-                <input type="text" id="email" size="30">
+                <input type="text" id="email" size="30" ngModel>
             </li>
         </ul>
 </fieldset>
 <br>
 <div class="submitDiv">
-    <input id="submit" type="submit" onclick="validateClient(event)" value="Submit">
+    <input id="submit" type="submit" value="Submit">
 </div>
-<div *ngif="isClientCreated">Hello new client!</div>
