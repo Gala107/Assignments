@@ -23,12 +23,7 @@ export class CoindeskService {
       }});        
     }
 
-    load(): BpiHolder {
+    load(): Observable<BpiHolder> {
       return this.http.get<BpiHolder>("https://api.coindesk.com/v1/bpi/currentprice.json");
     }
-
-  //  let obj = this.http.get("https://api.coindesk.com/v1/bpi/currentprice.json");
-  //  obj.
-      
-
 }

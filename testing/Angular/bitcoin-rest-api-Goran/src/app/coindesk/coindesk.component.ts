@@ -8,11 +8,29 @@ import { CoindeskService } from '../coindesk.service';
   styleUrls: ['./coindesk.component.css']
 })
 export class CoindeskComponent {
-  constructor(public coindeskService: CoindeskService) {};
+  constructor(public service: CoindeskService) {};
+  // bitcoin: BpiHolder;
 
-  loadBitcoinUpdate(): void {
-    this.coindeskService.loadBitcoinBPI();
-    let bpiHolder: BpiHolder = this.coindeskService.load();
-    console.log(bpiHolder);
-  };
+  // loadBitcoinUpdate(): void {
+  //   this.service.loadBitcoinBPI();
+  //   let bpiHolder: BpiHolder = this.service.load();
+  //   console.log(bpiHolder);
+  // };
+  
+  load(): void {
+  this.service.load().subscribe({
+    next:(data:any)=> {
+        let bitcoin: BpiHolder=data;
+        console.log(bitcoin.bpi.USD.rate);
+  },
+  error:(error:any)=>{
+        console.log(error)
+  },
+  complete:()=> {
+      console.log("completed!")
+  }
+
+  });
+
+}
 }
