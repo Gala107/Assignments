@@ -1,0 +1,20 @@
+<!-- 
+Create an angular project with the below specifications
+1. In a view there needs to be a button with the text "Current Bitcoin Price"
+2. When the button is clicked the below should happen
+   a. Make a call to CoinDesk REST API at endpoint https://api.coindesk.com/v1/bpi/currentprice.json
+   b. Consume the response from CoinDesk
+   c. Bind the response to a model and display the information in the browser.
+   d. Call a function to alert users
+     i. If price is less than 27000 then display in the browser "Buy now!"
+     ii. If the price is greater than 50000 then display in the browser "Sell now!"
+ -->
+
+ <fieldset>
+    <legend>Bitcoin Stock Market</legend>
+    <div></div>
+    <div>
+        <input type="button" value="Current Bitcoin Price" (click)="loadBitcoinUpdate()">
+    </div>
+ </fieldset>
+ 
