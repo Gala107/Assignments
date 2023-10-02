@@ -9,12 +9,18 @@ Create an angular project with the below specifications
      i. If price is less than 27000 then display in the browser "Buy now!"
      ii. If the price is greater than 50000 then display in the browser "Sell now!"
  -->
-
- <fieldset>
+<fieldset>
     <legend>Bitcoin Stock Market</legend>
-    <div></div>
-    <div>
+    <div class="bpi">
+        <ul>
+            <li *ngFor="let bpi of bpiArray">
+                {{bpi.code}}-{{bpi.description}}:  {{bpi.rate}}
+            </li>
+        </ul>
+    </div>
+  
+    <div class="buttonDiv">
+        <div class="msg">{{msg}}</div>
         <input type="button" value="Current Bitcoin Price" (click)="load()">
     </div>
- </fieldset>
- 
+</fieldset>

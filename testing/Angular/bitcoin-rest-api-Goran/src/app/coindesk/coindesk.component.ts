@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BpiHolder } from '../bpi-holder';
+import { Bpi } from '../bpi';
 import { CoindeskService } from '../coindesk.service';
 
 @Component({
@@ -8,29 +8,35 @@ import { CoindeskService } from '../coindesk.service';
   styleUrls: ['./coindesk.component.css']
 })
 export class CoindeskComponent {
-  constructor(public service: CoindeskService) {};
-  // bitcoin: BpiHolder;
+  constructor(public service: CoindeskService) { };
 
-  // loadBitcoinUpdate(): void {
-  //   this.service.loadBitcoinBPI();
-  //   let bpiHolder: BpiHolder = this.service.load();
-  //   console.log(bpiHolder);
-  // };
+  bpiArray: Array<Bpi> = [];
+  msg = "";
   
   load(): void {
-  this.service.load().subscribe({
-    next:(data:any)=> {
-        let bitcoin: BpiHolder=data;
-        console.log(bitcoin.bpi.USD.rate);
-  },
-  error:(error:any)=>{
+    this.service.load().subscribe({
+      next: (data: any) => {
+        this.bpiArray[0] = data["bpi"]["USD"];
+        this.bpiArray[1] = data["bpi"]["EUR"];
+        this.bpiArray[2] = data["bpi"]["GBP"];
+
+        let price = parseFloat(this.bpiArray[0].rate.replace(",", ""));
+        console.log("price " + price );
+
+        if (price < 27000) {
+          this.msg = "Buy now!";
+        }else if (+price > 50000) {
+          this.msg = "Sell now!";
+        }
+
+        console.log(this.bpiArray);
+      },
+      error: (error: any) => {
         console.log(error)
-  },
-  complete:()=> {
-      console.log("completed!")
+      },
+      complete: () => {
+        console.log("completed!")
+      }
+    });
   }
-
-  });
-
-}
 }
