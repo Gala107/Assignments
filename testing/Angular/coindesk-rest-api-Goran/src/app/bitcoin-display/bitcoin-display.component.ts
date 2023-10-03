@@ -22,11 +22,13 @@ export class BitcoinDisplayComponent {
         this.eurPrice = response.bpi.EUR.rate;
         this.gbpPrice = response.bpi.GBP.rate;
 
-        if (response.bpi.USD.rate_float < 28000) {
+        if (response.bpi.USD.rate_float < 27000) {
           this.msg = "Buy now!";
         } else if (response.bpi.USD.rate_float > 50000) {
           this.msg = "Sell now!";
         }
+      },
+      error: error => {console.log("OBSERVER received an error: " + error)
       }
     });
   }
