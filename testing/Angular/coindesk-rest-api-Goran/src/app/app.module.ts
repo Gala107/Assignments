@@ -1,14 +1,14 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { CoindeskComponent } from './coindesk/coindesk.component';
+import { BitcoinDisplayComponent } from './bitcoin-display/bitcoin-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoindeskComponent
+    BitcoinDisplayComponent
   ],
   imports: [
     BrowserModule, HttpClientModule

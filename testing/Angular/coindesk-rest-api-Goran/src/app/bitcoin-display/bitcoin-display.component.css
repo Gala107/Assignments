@@ -23,16 +23,13 @@ input[type=button] {
     font-weight: bolder;
     border: 2px solid rgb(28, 72, 153);
 }
-.bpi {
+div {
     font-size: 15px;
-    font-weight:normal;
-    height: 50px;
-    width: 400px;
-    position: absolute;
-    top: 10%;
-    left: 7%;
+    font-weight: bold;
+    padding-top: 10px;
 }
 .msg {
+    font-size: 30px;
     color: red;
-    padding: 0 0 15px 30px;
+    padding: 0 0 10px 30px;
 }

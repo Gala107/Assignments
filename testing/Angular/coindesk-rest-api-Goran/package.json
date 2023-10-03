@@ -1,5 +1,5 @@
 {
-  "name": "bitcoin-rest-api-goran",
+  "name": "coindesk-rest-api-goran",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

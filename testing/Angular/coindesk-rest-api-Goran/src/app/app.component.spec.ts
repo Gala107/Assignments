@@ -12,16 +12,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'bitcoin-rest-api-Goran'`, () => {
+  it(`should have as title 'coindesk-rest-api-Goran'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('bitcoin-rest-api-Goran');
+    expect(app.title).toEqual('coindesk-rest-api-Goran');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('bitcoin-rest-api-Goran app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('coindesk-rest-api-Goran app is running!');
   });
 });

@@ -1,6 +1,6 @@
-import { Bpi  } from './bpi';
+import { Bpi } from './bpi';
 
-describe('Bitcoin', () => {
+describe('Bpi', () => {
   it('should create an instance', () => {
     expect(new Bpi()).toBeTruthy();
   });
