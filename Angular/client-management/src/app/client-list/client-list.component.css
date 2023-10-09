@@ -1,0 +1,19 @@
+table {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+td {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 5px;
+    color: rgb(71, 80, 88);
+    font-size: 17px;
+    border-bottom: 1px solid #ccc;
+}
+th {
+    border-bottom: 1px solid #ccc;
+}
+td {
+    text-align: center;
+}

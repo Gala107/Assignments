@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ClientService } from '../client.service';
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  selector: 'app-create-client',
+  templateUrl: './create-client.component.html',
+  styleUrls: ['./create-client.component.css']
 })
-export class ClientComponent {
+export class CreateClientComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: ClientService) { }
 
-  validateClient(clientForm: NgForm) {
+  createClient(clientForm: NgForm) {
     let client = clientForm.value;
 
     // Validate that first name contains only letters.
@@ -29,13 +30,21 @@ export class ClientComponent {
 
     if (!firstNameExp.test(client.firstName)) {
       alert("Please enter your first name.");
+      return;
     } else if (!lastNameExp.test(client.lastName)) {
       alert("Please enter your last name.");
+      return;
     } else if (!emailExp.test(client.email)) {
       alert("Please enter your email.");
+      return;
     }
 
-    // this.router.navigate(["client-list"]);
-    this.router.navigate(['/client-list'], { skipLocationChange: true });
+    this.service.createClient(client).subscribe({
+      next: client => console.log(client),
+      error: error => console.log(`Observer received and error: ${error}`),
+      complete: () => this.service.loadClients() 
+    }); 
+
+    this.router.navigate(["client-list"], {skipLocationChange:true});
   }
 }

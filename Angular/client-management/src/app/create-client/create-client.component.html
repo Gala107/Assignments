@@ -1,0 +1,99 @@
+<!-- 
+    Using TDF/Template Driven Form approach,
+    good for small projects.
+    Uses predefined ngForm and ngModel.
+ -->
+<div class="main">
+    <form #clientForm="ngForm" (ngSubmit)="createClient(clientForm)">
+        <h1>Create Client</h1>
+        <fieldset>
+            <legend>Client Information</legend>
+            <table>
+                <tr>
+                    <td>
+                        <label for="firstName"><span class="required">*</span>First Name</label><br>
+                        <input type="text" id="firstName" name="firstName" size="30" ngModel>
+                    </td>
+                    <td>
+                        <label for="lastName"><span class="required">*</span>Last Name</label><br>
+                        <input type="text" id="lastName" name="lastName" size="30" ngModel>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="category">Category</label>
+                        <input type="radio" id="individual" name="category" value="individual" ngModel>
+                        <label for="individual">Individual</label>
+                        <input type="radio" id="business" name="category" value="business" ngModel>
+                        <label for="business">Business</label>
+                    </td>
+                    <td>
+                        <label for="businessType">Business Type</label>
+                        <select id="businessType" name="businessType" ngModel>
+                            <option value="none">Selet business type</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="residential">Residential</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" rowspan="2">
+                        <div>
+                            <label for="description">Description<br>
+                                <textarea id="description" name="description" cols="55" rows="5" ngModel></textarea>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr></tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Contact Information</legend>
+            <table>
+                <tbody ngModelGroup="address">
+                    <tr>
+                        <td>
+                            <label for="address.street1">Street Address</label><br>
+                            <input type="text" id="street1" name="street1" size="30" ngModel>
+                        </td>
+                        <td>
+                            <label for="address.street2">Street Address 2</label><br>
+                            <input type="text" id="street2" name="street2" size="30" ngModel>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="address.city">City</label><br>
+                            <input type="text" id="city" name="city" size="30" ngModel>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="address.state">State</label><br>
+                            <input type="text" id="state" name="state" size="25" ngModel>
+                        </td>
+                        <td>
+                            <label for="address.zipCode">Zip Code</label><br>
+                            <input type="number" id="zipCode" name="zipCode" size="6" ngModel>
+                        </td>
+                    </tr>
+                </tbody>
+                <tr>
+                    <td>
+                        <label for="phone">Phone</label><br>
+                        <input type="text" id="phone" name="phone" size="20" ngModel>
+                    </td>
+                    <td>
+                        <label for="email"><span class="required">*</span>Email</label><br>
+                        <input type="text" id="email" name="email" size="30" ngModel>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <br>
+        <div>
+            <input id="submit" type="submit" value="Submit">
+        </div>
+    </form>
+</div>

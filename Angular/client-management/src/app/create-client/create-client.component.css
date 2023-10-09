@@ -1,24 +1,37 @@
-fieldset {
+ /* fieldset {
     border: 1px solid #ccc;
-    border-radius: 4px;
-    margin: 0 0 20px 30px;
-    width: 600px;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 10px;
 }
 
-legend {
+th, legend {
     font-weight: bold;
-    font-size: large;
+    font-size: 25px;
     color: cornflowerblue;
     padding: 10px 10px 15px 10px;
 }
 
+table {
+    width: 100%;
+    align-self: center;
+}
+
+td {
+    text-align: left;
+}
+
 label {
-    padding: 0px 0px 20px 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 5px;
     color: rgb(71, 80, 88);
+    font-size: 20px;
 }
 
 h1 {
     color: rgb(71, 80, 88);
+    text-align: center;
 }
 
 option {
@@ -27,9 +40,10 @@ option {
 
 input,
 select {
-    padding: 5px 5px 5px 0px;
-    margin: 5px 10px 15px 0px;
+    padding: 5px;
+    margin: 5px 5px 5px 0px;
     border: 1px solid #ccc;
+    border-radius: 6px;
     color: rgb(71, 80, 88);
     outline: none;
 }
@@ -40,26 +54,7 @@ label textarea {
     border: 1px solid #ccc;
     color: rgb(71, 80, 88);
     outline: none;
-}
-
-ul {
-    list-style-type: none;
-    display: grid;
-    grid-template-columns: auto auto;
-    padding-left: 15px;
-}
-
-div {
-    width: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.separated {
-    padding-top: 20px;
-    margin-top: 15px;
-    margin-right: 20px;
+    border-radius: 6px;
 }
 
 #submit {
@@ -69,10 +64,15 @@ div {
     color: rgb(71, 80, 88);
     font-weight: bold;
     font-size: medium;
-    margin-left: 100px;
+    position: realative;
+    display: block;
+    margin: 0 auto;
 }
 
 .required {
     color: red;
-}
+}  */
 
+td {
+    text-align: left;
+}

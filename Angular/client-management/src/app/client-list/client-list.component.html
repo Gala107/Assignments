@@ -1,1 +1,29 @@
-<p>client-list works!</p>
+<div class="main">
+    <h1>Clients</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let client of clients">
+            <td>{{client.firstName}} {{client.lastName}}</td>
+            <td>{{client.category}}</td>
+            <td>{{client.description}}</td>
+            <td>{{client.phone}}</td>
+            <td>{{client.email}}</td>
+            <td>
+                <img src="../assets/images/update.png" width="30px" height="30px"
+                    (click)="updateClient(client)" />
+            </td>
+            <td>
+                <img src="../assets/images/delete.png" width="30px" height="30px"
+                    (click)="deleteClient(client.id)" />
+            </td>
+        </tr>
+    </table>
+</div>
