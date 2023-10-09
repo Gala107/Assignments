@@ -1,0 +1,120 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Snow",
+      "category": "individual",
+      "busType": "residential",
+      "description": "new client activity",
+      "address": {
+        "street": "34 Norway Street",
+        "street2": "",
+        "city": "Los Angeles",
+        "state": "California",
+        "zipCode": "1400022"
+      },
+      "email": "john.snow@gmail.com",
+      "phone": "9849485545"
+    },
+    {
+      "id": 2,
+      "fistName": "Will",
+      "lastName": "Smith",
+      "address": {
+        "street": "301 Houston Street",
+        "city": "Houston",
+        "state": "Texas",
+        "zipCode": "5566022"
+      },
+      "email": "will.smith@gmail.com",
+      "phone": "42343434545"
+    },
+    {
+      "id": 3,
+      "firstName": "Steven",
+      "lastName": "Lex",
+      "address": {
+        "street": "#123/45",
+        "city": "Bangalore",
+        "state": "Karnatak",
+        "zipCode": "560096"
+      },
+      "email": "steven@gmail.com",
+      "contact": "7678965678"
+    },
+    {
+      "id": 4,
+      "firstName": "Lori",
+      "lastName": "Hamilton",
+      "address": {
+        "street": "#123/45",
+        "city": "Bangalore",
+        "state": "Karnatak",
+        "zipCode": "560096"
+      },
+      "email": "steven@gmail.com",
+      "contact": "7678965678"
+    },
+    {
+      "firstName": "John",
+      "lastName": "Watkins",
+      "category": "business",
+      "businessType": "commercial",
+      "description": "Testing...testing...",
+      "street1": "182 12 st",
+      "street2": "",
+      "city": "Lawrence",
+      "state": "Kansas",
+      "zipCode": 33424,
+      "phone": "2424 43232234",
+      "email": "John@gmail.com",
+      "id": 5
+    },
+    {
+      "firstName": "Lori",
+      "lastName": "Winter",
+      "category": "business",
+      "businessType": "commercial",
+      "description": "Creating new client Lori Winter.",
+      "address": {
+        "street1": "123 1st",
+        "street2": "",
+        "city": "Lowkey",
+        "state": "Kansas",
+        "zipCode": 43434
+      },
+      "phone": "2342342342",
+      "email": "lori@cloud.com",
+      "id": 7
+    },
+    {
+      "firstName": "Twister",
+      "lastName": "Minister",
+      "category": "business",
+      "businessType": "commercial",
+      "description": "Testing Mr. Twister Minister",
+      "address": {
+        "street1": "123 W Cherry Rd",
+        "street2": "",
+        "city": "Tomorrow",
+        "state": "Kansas",
+        "zipCode": 234234
+      },
+      "phone": "243 234 2333",
+      "email": "twister@icloud.com",
+      "id": 8
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "firstName": "Nancy",
+      "lastName": "Storm",
+      "meetDate": "2023-10-27",
+      "meetTime": "12:00",
+      "note": "Testing for Nancy.",
+      "clientId": null
+    }
+  ]
+}
