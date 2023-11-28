@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.0</jsp-version>
+	<short-name>st</short-name>
+
+	<tag>
+		<name>MyDate</name>
+		<tag-class>com.custom.tags.PrintDateTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+
+	<tag>
+		<name>CustomDateTag</name>
+		<tag-class>com.custom.tags.DateWithInputTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>format</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>UpperCaseTag</name>
+		<tag-class>com.custom.tags.UpperCaseWithBodyTag</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+
+</taglib>

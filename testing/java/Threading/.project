@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Java11Features</name>
+	<name>Threading</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1700622683960</id>
+			<id>1699297446326</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
