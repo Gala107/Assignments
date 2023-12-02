@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"
-	import="com.gym.management.service.ParticipantBatchService, java.util.List, com.gym.management.model.Participant"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="com.gym.management.service.ParticipantService"%>
+<%@page import="com.gym.management.model.Participant"%>
+<%@page import="java.util.List"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,14 +17,11 @@
 			<a href="index.html">Home</a> <a href="addBatch.html">Add Batch</a> <a
 				href="addParticipant.jsp">Add Participant</a> <a
 				href="viewBatches.jsp">Batches</a> <a href="viewParticipants.jsp">Participants</a>
-			<a href="updateBatch.html">Update Batch</a> <a
-				href="updateParticipant.html">Update Participant</a>
 		</div>
 		<h1>Participants</h1>
-
-		<%!List<Participant> participants = new ParticipantBatchService().getParticipants();%>
-
-		<form action="ParticipantController" method="post">
+		<%
+			List<Participant> participants = new ParticipantService().getParticipants();
+		%>
 			<table id="tableP">
 				<thead>
 					<tr>
@@ -40,14 +38,16 @@
 							<td>${participant.name}</td>
 							<td>${participant.phone}</td>
 							<td>${participant.email}</td>
-							<td>${participant.batchId}</td>	
-							<td><img alt="Update" src="images/update.jpg"><img alt="Delete" src="images/delete.png"></td>			
+							<td>${participant.batchId}</td>
+							<td><a
+								href="updateParticipant.jsp?participantId=${participant.id}"><img
+									alt="Update" src="images/update.jpg"></a> <a
+								href="ParticipantController?participantId=${participant.id}&action=delete"><img
+									alt="Delete" src="images/delete.png"></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-
-		</form>
 	</div>
 </body>
 </html>

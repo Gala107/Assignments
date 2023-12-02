@@ -2,8 +2,8 @@ package com.gym.management.model;
 
 public class Batch {
 	
-	public String id;
-	public String weekDay;
+	private String id;
+	private String weekDay;
 	private String startTime;
 	
 	public Batch() {
