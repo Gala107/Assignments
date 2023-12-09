@@ -61,11 +61,18 @@ img {
 	margin: 5px;
 }
 
+.navigator {
+	text-align: center;
+}
+
 .navigator a {
-	margin: 10px 0 40px 0;
-	padding: 0 10px;
+	padding: 0 10px 0 4px;
 	text-decoration: none;
 	border-right: 2px solid rgb(97, 100, 237);
+}
+
+.navigator a:last-child {
+	border-right: none;
 }
 
 .center {
