@@ -7,18 +7,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Participant</title>
+<title>New Participant</title>
 <link rel="stylesheet" href="/GymManagementApp/css/styles.css" />
 
 </head>
 <body>
 	<div class="center">
-		<div class="navigator">
-			<a href="index.html">Home</a> <a href="addBatch.html">Add Batch</a> <a
-				href="addParticipant.jsp">Add Participant</a> <a
-				href="viewBatches.jsp">Batches</a> <a href="viewParticipants.jsp">Participants</a>
-		</div>
-		<h1>Add Participant</h1>
+		<%@include file="navigationBar.html" %>
+		<h1>New Participant</h1>
 		<%
 		List<Batch> batches = new BatchService().getBatches();
 		%>
@@ -41,7 +37,7 @@
 								${batch.weekDay} at ${batch.startTime}</option>
 						</c:forEach>
 				</select></li>
-				<li><input type="submit" value="Add"></li>
+				<li><input type="submit" value="Create"></li>
 			</ul>
 			<input type="hidden" id="action" name="action" value="create">
 		</form>

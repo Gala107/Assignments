@@ -1,6 +1,7 @@
 package com.gym.management.controller;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.gym.management.model.Participant;
 import com.gym.management.service.ParticipantService;
@@ -22,8 +23,7 @@ public class ParticipantController extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String action = request.getParameter("action");
 		if (action.equals("delete")) {
@@ -32,8 +32,7 @@ public class ParticipantController extends HttpServlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String action = request.getParameter("action");
 		if (action.equals("create")) {
@@ -43,12 +42,13 @@ public class ParticipantController extends HttpServlet {
 			dispatcher.forward(request, response);
 		} else if (action.equals("update")) {
 			doPut(request, response);
+		} else if (action.equals("updateParticipants")) {
+			doPatch(request, response);
 		}
 	}
 
 	@Override
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int participantId = Integer.parseInt(request.getParameter("participantId"));
 		service.deleteParticipant(participantId);
@@ -62,6 +62,18 @@ public class ParticipantController extends HttpServlet {
 			throws ServletException, IOException {
 
 		service.updateParticipant(populateParticipant(request));
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("viewParticipants.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	public void doPatch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String batchId = request.getParameter("batch");
+		String[] participantIds = request.getParameterValues("participantId");
+		if (participantIds != null) {
+			int[] ids = Arrays.stream(participantIds).mapToInt(Integer::parseInt).toArray();
+			service.updateParticipantsBatch(ids, batchId);
+		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("viewParticipants.jsp");
 		dispatcher.forward(request, response);

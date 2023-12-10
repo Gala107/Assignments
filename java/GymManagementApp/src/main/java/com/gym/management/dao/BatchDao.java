@@ -20,7 +20,7 @@ public class BatchDao {
 			statement.setString(3, batch.getStartTime());
 			return statement.executeUpdate();
 		} catch (Exception e) {
-			System.err.println("Not able to create a batch: " + e.toString());
+			System.err.println("Not able to create a Batch: " + e.toString());
 		}
 		return 0;
 	}
@@ -40,7 +40,7 @@ public class BatchDao {
 				return batch;
 			}
 		} catch (Exception e) {
-			System.err.println("Not able to retrieve batch by id= " + id + " : " + e.toString());
+			System.err.println("Not able to retrieve Batch by id= " + id + " : " + e.toString());
 		}
 		return null;
 	}
@@ -55,7 +55,7 @@ public class BatchDao {
 			statement.setString(3, batch.getId());
 			return statement.executeUpdate();
 		} catch (Exception e) {
-			System.err.println("Not able to update batch with id= " + batch.getId() + " : " + e.toString());
+			System.err.println("Not able to update Batch with id= " + batch.getId() + " : " + e.toString());
 		}
 		return 0;
 
@@ -71,7 +71,7 @@ public class BatchDao {
 			System.err.println("Batch with id= " + id + " can't be deleted, it has participants assigned to it: " + e1.toString());
 			return 5;
 		} catch (Exception e2) {
-			System.err.println("Not able to delete batch with id= " + id + " : " + e2.toString());
+			System.err.println("Not able to delete Batch with id= " + id + " : " + e2.toString());
 		}
 		return 0;
 	}
@@ -91,7 +91,7 @@ public class BatchDao {
 			}
 			return batches;
 		} catch (Exception e) {
-			System.err.println("Not able to retrieve all batches: " + e.toString());
+			System.err.println("Not able to retrieve all Batches: " + e.toString());
 		}
 		return Collections.emptyList();
 	}

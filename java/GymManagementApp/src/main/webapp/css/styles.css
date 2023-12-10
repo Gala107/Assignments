@@ -19,11 +19,12 @@ li {
 	margin: 10px;
 }
 
-input, select {
+input,
+select {
 	border: 2px solid rgb(200, 201, 249);
 	border-radius: 6px;
-	padding: 5px;
 	outline: none;
+	padding: 5px;
 }
 
 input[type=submit] {
@@ -31,27 +32,36 @@ input[type=submit] {
 	font-size: 18px;
 	font-weight: bold;
 	padding: 7px;
-}
+} 
+
+input[type=checkbox] {
+	clip-path: circle(80% at 50% 50%); 
+	accent-color: rgb(97, 100, 237);
+} 
 
 th {
 	font-size: 25px;
 	border-bottom: 2px solid rgb(200, 201, 249);
 }
 
-th, td {
+th,
+td {
 	padding: 10px 0 10px 30px;
 	text-align: left;
 }
 
-#tableP th:nth-child(odd), #tableP td:nth-child(odd) {
+#tableP th:nth-child(odd),
+#tableP td:nth-child(odd) {
 	width: 25%;
 }
 
-#tableP th:nth-child(2), #tableP td:nth-child(2) {
+#tableP th:nth-child(2),
+#tableP td:nth-child(2) {
 	width: 20%;
 }
 
-#tableB th, #tableB td {
+#tableB th,
+#tableB td {
 	width: 28%;
 }
 
@@ -68,6 +78,7 @@ img {
 .navigator a {
 	padding: 0 10px 0 4px;
 	text-decoration: none;
+	color: rgb(97, 100, 237);
 	border-right: 2px solid rgb(97, 100, 237);
 }
 

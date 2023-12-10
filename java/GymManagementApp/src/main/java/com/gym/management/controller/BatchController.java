@@ -1,10 +1,10 @@
 package com.gym.management.controller;
 
 import java.io.IOException;
-import java.sql.SQLIntegrityConstraintViolationException;
 
 import com.gym.management.model.Batch;
 import com.gym.management.service.BatchService;
+import com.gym.management.service.ParticipantService;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class BatchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	BatchService service = new BatchService();
+	ParticipantService participantService = new ParticipantService();
 
 	public BatchController() {
 
@@ -54,7 +55,7 @@ public class BatchController extends HttpServlet {
 
 		int result = service.deleteBatch(batchId);
 		if(result == 5) {
-			request.setAttribute("message", batchId + " Batch cannot be deleted. There are participants assigned to this Batch.");
+			request.setAttribute("message", "Batch " + batchId + " cannot be deleted. There are Participants assigned to this Batch.");
 		}
 	
 		RequestDispatcher dispatcher = request.getRequestDispatcher("viewBatches.jsp");
@@ -70,7 +71,7 @@ public class BatchController extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private Batch populateBatch(HttpServletRequest request) {
+	private Batch populateBatch(HttpServletRequest request) {		
 		Batch batch = new Batch();
 		batch.setId(request.getParameter("batchId"));
 		batch.setWeekDay(request.getParameter("day"));

@@ -8,12 +8,7 @@
 </head>
 <body>
 	<div class="center">
-		<div class="navigator">
-			<a href="index.html">Home</a> <a href="addBatch.html">Add Batch</a> 
-			<a href="addParticipant.jsp">Add Participant</a> 
-			<a href="viewBatches.jsp">Batches</a> 
-			<a href="viewParticipants.jsp">Participants</a> 
-		</div>
+		<%@include file="navigationBar.html" %>
 		<h1>Welcome to Gym Management Solution</h1>		
 	</div>
 </body>

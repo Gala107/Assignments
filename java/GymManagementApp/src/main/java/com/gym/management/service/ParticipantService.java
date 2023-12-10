@@ -25,8 +25,16 @@ public class ParticipantService {
 	public List<Participant> getParticipants() {
 		return participantDao.getAllParticipants();
 	}
+	
+	public List<Participant> getParticipantsByBatch(String batchId) {
+		return participantDao.getParticipantsByBatch(batchId) ; 
+	}
 
 	public void deleteParticipant(int id) {
 		participantDao.deleteParticipant(id);
+	}
+	
+	public void updateParticipantsBatch(int[] participantIds, String batchId) {
+		participantDao.updateParticipantsBatch(participantIds, batchId);
 	}
 }
