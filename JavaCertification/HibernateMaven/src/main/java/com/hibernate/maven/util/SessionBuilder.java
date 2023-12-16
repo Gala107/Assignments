@@ -18,7 +18,7 @@ public class SessionBuilder {
 	 */
 	static Session build(String dbSetup) {
 
-		// Implementation Option 1 using Configuraion.
+		// Implementation Option 1 using Configuration.
 		Configuration config = new Configuration().configure().addAnnotatedClass(User.class);
 		StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
 				.applySettings(config.getProperties()).applySetting(AvailableSettings.HBM2DDL_AUTO, dbSetup).build();

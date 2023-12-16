@@ -1,0 +1,97 @@
+@charset "ISO-8859-1";
+
+h1 {
+	text-align: center;
+	color: rgb(0, 0, 160);
+	margin-top: 70px;
+}
+
+ul {
+	list-style-type: none;
+	grid-template-columns: auto auto;
+	display: grid;
+	grid-template-columns: auto;
+	padding: 12px;
+}
+
+li {
+	text-align: left;
+	margin: 10px;
+}
+
+input,
+select {
+	border: 2px solid rgb(200, 201, 249);
+	border-radius: 6px;
+	outline: none;
+	padding: 5px;
+}
+
+input[type=submit] {
+	color: rgb(0, 0, 160);
+	font-size: 18px;
+	font-weight: bold;
+	padding: 7px;
+} 
+
+input[type=checkbox] {
+	clip-path: circle(80% at 50% 50%); 
+	accent-color: rgb(97, 100, 237);
+} 
+
+th {
+	font-size: 25px;
+	border-bottom: 2px solid rgb(200, 201, 249);
+}
+
+th,
+td {
+	padding: 10px 0 10px 30px;
+	text-align: left;
+}
+
+#tableP th:nth-child(odd),
+#tableP td:nth-child(odd) {
+	width: 25%;
+}
+
+#tableP th:nth-child(2),
+#tableP td:nth-child(2) {
+	width: 20%;
+}
+
+#tableB th,
+#tableB td {
+	width: 28%;
+}
+
+img {
+	width: 35px;
+	height: 35px;
+	margin: 5px;
+}
+
+.navigator {
+	text-align: center;
+}
+
+.navigator a {
+	padding: 0 10px 0 4px;
+	text-decoration: none;
+	color: rgb(97, 100, 237);
+	border-right: 2px solid rgb(97, 100, 237);
+}
+
+.navigator a:last-child {
+	border-right: none;
+}
+
+.center {
+	margin: auto;
+	width: 50%;
+	border: 3px solid rgb(97, 100, 237);
+	border-radius: 16px;
+	padding: 30px;
+	font-size: 20px;
+	color: rgb(97, 100, 237);
+}
