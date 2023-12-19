@@ -13,6 +13,7 @@ public class AppMain {
 	static Session sessionObj;
 
 	public static void main(String[] args) {
+
 		System.out.println(".......Hibernate Maven Example.......\n");
 
 		// sessionObj.createCriteria(...) is deprecated. No Criteria with Session object anymore.

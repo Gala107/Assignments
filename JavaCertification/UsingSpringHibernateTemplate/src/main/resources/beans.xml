@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/info" />
+		<property name="username" value="root" />
+		<property name="password" value="kalinka" />
+	</bean>
+
+	<bean id="mysessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.spring.hibernate.jdbc.bean.Employee</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<!-- prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="edao" class="com.spring.hibernate.jdbc.dao.EmployeeDAO">
+		<property name="mysessionFactory" ref="mysessionFactory" />
+		<property name="transactionManager" ref="transactionManager" />
+	</bean>
+
+</beans>

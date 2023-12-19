@@ -6,6 +6,8 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+	<!-- Spring Framework -->
+	<!-- 
 	<bean class="com.spring.bean.Hello" id="h1">
 		<property name="message" value="Welcome to Spring! From h1." />
 	</bean>
@@ -18,9 +20,34 @@
 		<property name="employeeId" value="123456" />
 		<property name="employeeName" value="Miranda" />
 	</bean>
-	
+
 	<bean class="com.spring.bean.Employee" id="e2">
 		<constructor-arg name="employeeId" value="890" />
 		<constructor-arg name="employeeName" value="Me Me Me!" />
 	</bean>
+    -->
+	<!-- Spring AOP Classical Approach -->
+	<!-- 
+	<bean id="bb" class="com.spring.aop.classical.bean.BasicBean" />
+	<bean id="aa" class="com.spring.aop.classical.advice.AfterAdvisor" />
+	<bean id="ba"
+		class="com.spring.aop.classical.advice.BeforeAdvisor" />
+	<bean id="bh" class="com.spring.aop.classical.advice.BothAdvisor" />
+	<bean id="ea"
+		class="com.spring.aop.classical.advice.ExceptionAdvisor" />
+	<bean id="proxy"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="bb" />
+		<property name="interceptorNames">
+			<list>
+				<value>bh</value>
+				<value>ea</value>
+			</list>
+		</property>
+	</bean>
+	-->
+	<!-- Spring AOP AspectJ Approach -->
+	<bean id="aab" class="com.spring.aop.aspectj.bean.AOP_AspectJ_Bean"></bean>
+	<bean id="apa" class="com.spring.aop.aspectj.aspect.AOP_Aspect" />
+	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator" />
 </beans>
