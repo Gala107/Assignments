@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  
+    <bean id="con1" class="com.spring.application.context.bean.Connection" scope="prototype">  
+       <property name="url" value="jdbc:mysql://localhost/estore" />
+       <property name="username" value="john.watson" />
+       <property name="password" value="123" />
+    </bean>
+    -->
+    <!-- scope="singleton" is default and doesn't have to be specified -->
+    <bean id="con2" class="com.spring.application.context.bean.Connection" scope="singleton" init-method="myInit" destroy-method="myDestroy">  
+       <property name="url" value="jdbc:mysql://localhost/fooddelivery" />
+       <property name="username" value="fionna" />
+       <property name="password" value="678" />
+    </bean>
+    
+    <!-- Applies to every bean configured in this file. Its methods will be executed before and after init method on Bean. -->
+    <bean class="com.spring.application.context.bean.PostProcessor"/>
+
+</beans>

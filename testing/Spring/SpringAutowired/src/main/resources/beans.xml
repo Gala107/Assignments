@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- Spring IOC Container will be recognizing the annotation @Autowired to perform dependency Injection-->    
+    <context:annotation-config/>
+
+	<bean id="order"
+		class="com.spring.autowired.bean.Order">
+		<property name="orderId" value="101" />
+		<property name="dateTimeStamp" value="20th Feb, 2022" />
+		<property name="amount" value="2000" />
+	</bean>
+
+	<bean id="user"
+		class="com.spring.autowired.bean.User">
+		<property name="name" value="John Watson" />
+		<property name="email" value="john@me.com" />
+		
+		<!-- we are not configuring Setter or Constructor Injection in XML file.
+		<property name="order" ref="order" />
+		<constructor-arg ref="order" />
+		 -->
+	</bean>
+
+</beans>

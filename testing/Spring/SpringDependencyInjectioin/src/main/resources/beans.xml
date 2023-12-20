@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="aRef"
+		class="com.spring.dependency.injection.bean.Address">
+		<property name="address" value="101 Lee Blvd" />
+		<property name="city" value="Overland Park" />
+		<property name="state" value="Kansas" />
+		<property name="zipCode" value="77432" />
+	</bean>
+
+	<bean id="rRef"
+		class="com.spring.dependency.injection.bean.Restaurant">
+		<property name="name" value="John's Cafe" />
+		<property name="phone" value="234 234 4434" />
+		<property name="operatingHours" value="10:00 to 22:00" />
+		<property name="ratings" value="4.5" />
+		<!-- Setter Injection for IOC -->
+		<!-- <property name="address" ref="aRef" /> -->
+		<constructor-arg ref="aRef" />
+		<property name="searchKeywords">
+			<list>
+				<value>Johns Cafe</value>
+				<value>Coffee Shop</value>
+				<value>Cake</value>
+				<value>Pastry</value>
+				<value>Pizza Shop</value>
+			</list>
+			<!-- 
+			<list>
+				<ref></ref>
+				<ref></ref>
+				<ref></ref>
+				<ref></ref>
+				<ref></ref>
+			</list>
+			 -->
+		</property>
+	</bean>
+
+</beans>
