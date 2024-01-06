@@ -17,6 +17,7 @@ public class User {
 	@Autowired
 	public User(Order order) {
 		System.out.println("[User] - Constructor Injection - Object is created with Parametarized Constructor having Order as input");	
+		System.out.println("constructor order: " + order.hashCode());
 		this.order = order;
 	}
 
@@ -44,6 +45,7 @@ public class User {
 	@Autowired
 	public void setOrder(Order order) {
 		System.out.println("[User] - Setter Injection - setOrder(...) is executed having Order as input");	
+		System.out.println("setter order: " + order.hashCode());
 		this.order = order;
 	}
 

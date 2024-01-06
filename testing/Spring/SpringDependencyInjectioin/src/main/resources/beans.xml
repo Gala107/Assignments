@@ -20,6 +20,7 @@
 		<property name="ratings" value="4.5" />
 		<!-- Setter Injection for IOC -->
 		<!-- <property name="address" ref="aRef" /> -->
+		<!-- Constructor Injection for IOC -->
 		<constructor-arg ref="aRef" />
 		<property name="searchKeywords">
 			<list>
