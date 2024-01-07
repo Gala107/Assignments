@@ -17,7 +17,7 @@ public class Main {
 		
 		product.purchaseProduct("Home", "6 pm", "john@me.com");
 		
-		// ProxyFactoryBean : Configure this class for out bean object with Advices
+		// ProxyFactoryBean : Configure this class for our bean object with Advices
 		// We need to configure below attributes:
 		// 1. target
 		// 2. interceptorNames

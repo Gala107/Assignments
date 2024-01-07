@@ -8,9 +8,9 @@ public class Product {
 	String brand;
 	int stock;
 	boolean canBuy;
-	
+
 	public Product() {
-		System.out.println("[Product] Object is created.");		
+		System.out.println("[Product] Object is created.");
 	}
 
 	public int getId() {
@@ -60,25 +60,40 @@ public class Product {
 	public void setCanBuy(boolean canBuy) {
 		this.canBuy = canBuy;
 	}
-	
+
 	// Business Method
+	/*
+	 * public void purchaseProduct(String deliveryLocation, String deliveryTime,
+	 * String userEmail) { // 1. Validate the Stock | PRE PROCESSING
+	 * System.out.println("[Product] - Validating Stock..."); if (stock > 0) {
+	 * System.out.
+	 * println("[Product] - Please initiate the transaction for the amount of " +
+	 * price); System.out.println();
+	 * 
+	 * // 2. Transaction - CORE BUSINESS LOGIC
+	 * System.out.println("-----------------------------");
+	 * System.out.println("[Product] - Bank Transaction started for " + name +
+	 * " with price as " + price); System.out.println("[Product] - Thank you " +
+	 * userEmail + " for buying " + name + " of " + brand); System.out.println();
+	 * 
+	 * // 3. Notification | POST PROCESSING
+	 * System.out.println("[Product] - Notifying " + userEmail +
+	 * " through email with invoice of the amount " + price);
+	 * System.out.println("[Product] - Product " + brand + " " + name +
+	 * " will be delivered at " + deliveryLocation + " by " + deliveryTime);
+	 * System.out.
+	 * println("[Product] - Notify the Shipment and Dispatch Department for the purchase of "
+	 * + name); } else {
+	 * System.out.println("[Product] - We are out of stock. Please come back later."
+	 * ); } }
+	 */
 	public void purchaseProduct(String deliveryLocation, String deliveryTime, String userEmail) {
-		// 1. Validate the Stock | PRE PROCESSING
-		System.out.println("[Product] - Validating Stock...");
-		if (stock > 0) {
-			System.out.println("[Product] - Please initiate the transaction for the amount of " + price);
-			System.out.println();
-			
+
+		if (canBuy) {
 			// 2. Transaction - CORE BUSINESS LOGIC
 			System.out.println("-----------------------------");
 			System.out.println("[Product] - Bank Transaction started for " + name + " with price as " + price);
 			System.out.println("[Product] - Thank you " + userEmail + " for buying " + name + " of " + brand);
-			System.out.println();
-			
-			// 3. Notification | POST PROCESSING
-			System.out.println("[Product] - Notifying " + userEmail + " through email with invoice of the amount " + price);
-			System.out.println("[Product] - Product " + brand + " " + name + " will be delivered at " + deliveryLocation + " by " + deliveryTime);
-			System.out.println("[Product] - Notify the Shipment and Dispatch Department for the purchase of " + name);
 		} else {
 			System.out.println("[Product] - We are out of stock. Please come back later.");
 		}

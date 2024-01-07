@@ -8,7 +8,7 @@
     	<property name="id" value="101" />
     	<property name="name" value="Water Bootle" />
     	<property name="price" value="20" />
-    	<property name="brand" value="Hidrate" />
+    	<property name="brand" value="Hydrate" />
     	<property name="stock" value="17" /> 
     </bean>
     
