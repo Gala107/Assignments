@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Travel Management Solution</title>
-<link rel="stylesheet" href="/TravelManagementWithAOP/css/styles.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css"/>
 
 </head>
 <body>

@@ -5,14 +5,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Make a Reservation</title>
-<link rel="stylesheet" href="/TravelManagementWithAOP/css/styles.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css"/>
 
 </head>
 <body>
 	<div class="center">
 		<%@include file="navigationBar.html"%>
 		<h1>Make a Reservation</h1>
-		<form method="post">
+		<form action="makeReservation" method="post">
 
 			<table>
 				<tr>

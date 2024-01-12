@@ -8,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Participants</title>
-<link rel="stylesheet" href="/GymManagementApp/css/styles.css" />
+<link rel="stylesheet" href="/GymManagementAppWithHtml/css/styles.css" />
 
 </head>
 <body>

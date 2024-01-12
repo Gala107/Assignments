@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<!--  To enable @Controller, @Service, @Repository annotation -->
+<context:component-scan base-package="com"></context:component-scan>
+<mvc:resources mapping="/css/**" location="/css/" />
+
+<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="ds" scope="singleton">
+	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+	<property name="url" value="jdbc:mysql://localhost:3306/travel_management"></property>
+	<property name="username" value="root"></property>
+	<property name="password" value="kalinka"></property>
+</bean>
+
+<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"  id="sf" scope="singleton">
+	<property name="dataSource" ref="ds"></property>
+	
+	<property name="annotatedClasses">
+	<list>
+		<value>com.travel.management.entity.Client</value>
+		<value>com.travel.management.entity.TaxiReservation</value>
+		<value>com.travel.management.entity.TaxiInfo</value>
+	</list>
+	</property>
+	
+	<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
+			<prop key="hibernate.hbm2ddl.auto">update</prop>
+		</props>
+	</property>
+	
+</bean>
+
+</beans>

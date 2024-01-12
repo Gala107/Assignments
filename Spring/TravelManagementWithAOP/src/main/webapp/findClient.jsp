@@ -5,15 +5,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Make a Reservation</title>
-<link rel="stylesheet" href="/TravelManagementWithAOP/css/styles.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css"/>
+
 </head>
 </head>
 <body>
 	<div class="center">
 		<%@include file="navigationBar.html"%>
 		<h1>Make a Reservation</h1>
-		<form method="post">
+		
+		<form action="getClient" method="post">
 			<ul>
+				<li class="warning">${requestScope.msg}</li>
 				<li><label for="findBy">Find Client by</label>
 				<input type="radio" id="findBy" name="phone"> Phone
 				<input type="radio" id="findBy" name="email"> Email</li>

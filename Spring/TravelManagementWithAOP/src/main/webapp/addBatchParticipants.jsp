@@ -1,9 +1,5 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="com.gym.management.service.ParticipantService"%>
-<%@page import="com.gym.management.service.BatchService"%>
-<%@page import="com.gym.management.model.Participant"%>
-<%@page import="com.gym.management.model.Batch"%>
 <%@page import="java.util.List"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -11,22 +7,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Batch Participants</title>
-<link rel="stylesheet" href="/TravelManagementWithAOP/css/styles.css" />
+<link rel="stylesheet" href="/css/styles.css" />
 </head>
 </head>
 <body>
 	<div class="center">
 		<%@include file="navigationBar.html"%>
 		<h1>Add Participants to Batch</h1>
-		<%
-		List<Participant> participants = new ParticipantService().getParticipants();
-		List<Batch> batches = new BatchService().getBatches();
-		%>
 		<form action="ParticipantController" method="post">
 			<ul>
 				<li><label for="batch">Select Batch</label><br> 
 				<select id="batch" name="batch">
-						<c:forEach items="<%=batches%>" var="batch">
+						<c:forEach items="<%=%>" var="batch">
 							<option value="${batch.id}">${batch.id}:
 								${batch.weekDay} at ${batch.startTime}</option>
 						</c:forEach>
@@ -40,7 +32,7 @@
 							<th>Email</th>
 							<th>Current Batch</th>
 						</tr>
-						<c:forEach items="<%=participants%>" var="participant">
+						<c:forEach items="<%=%>" var="participant">
 							<tr>
 								<td><input type="checkbox" id="participantId"
 									name="participantId" value="${participant.id}"></td>

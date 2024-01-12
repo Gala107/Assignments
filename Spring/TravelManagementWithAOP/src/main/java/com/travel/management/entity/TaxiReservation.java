@@ -6,8 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 @Entity
+@Component
+@Scope("prototype")
+@Table(name = "taxi_reservation")
 public class TaxiReservation {
 	
 	@Id
@@ -21,9 +28,9 @@ public class TaxiReservation {
 	@Column(name = "luggage")
 	private boolean isLuggage;	
 	@OneToOne
-	private int clientId;
+	private Client client;
 	@OneToOne
-	private int taxiId;
+	private TaxiInfo taxi;
 	
 	public int getId() {
 		return id;
@@ -67,22 +74,22 @@ public class TaxiReservation {
 	public void setFare(float fare) {
 		this.fare = fare;
 	}
-	public int getClientId() {
-		return clientId;
+	public Client getClient() {
+		return client;
 	}
-	public void setClientId(int clientId) {
-		this.clientId = clientId;
+	public void setClient(Client client) {
+		this.client = client;
 	}
-	public int getTaxiId() {
-		return taxiId;
+	public TaxiInfo getTaxiInfo() {
+		return taxi;
 	}
-	public void setTaxiId(int taxiId) {
-		this.taxiId = taxiId;
+	public void setTaxiInfo(TaxiInfo taxi) {
+		this.taxi = taxi;
 	}
 	@Override
 	public String toString() {
 		return "TaxiReservation [id=" + id + ", pickupLocation=" + pickupLocation + ", pickupTime=" + pickupTime
 				+ ", destination=" + destination + ", passengerNum=" + passengerNum + ", isLuggage=" + isLuggage
-				+ ", fare=" + fare + ", clientId=" + clientId + ", taxiId=" + taxiId + "]";
+				+ ", fare=" + fare + ", client=" + client + ", taxi=" + taxi + "]";
 	}
 }
