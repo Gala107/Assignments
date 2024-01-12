@@ -18,7 +18,7 @@ public class ClientController {
 	ClientService service;
 
 	@RequestMapping(value = "getClient", method = RequestMethod.POST)
-	public String getClient(HttpServletRequest request) {
+	public ModelAndView getClient(HttpServletRequest request) {
 
 		String findBy = request.getParameter("findBy");
 		String clientInfo = request.getParameter("clientInfo");
@@ -31,8 +31,9 @@ public class ClientController {
 			model.setViewName("findClient.jsp");
 		} else {
 			model.addObject("client", client);
+			//model.setViewName("getTaxiInfo");
 			model.setViewName("makeReservation.jsp");
 		}
-		return "forward:getTaxiInfo";
+		return model;
 	}
 }

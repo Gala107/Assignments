@@ -18,8 +18,8 @@
 			<ul>
 				<li class="warning">${requestScope.msg}</li>
 				<li><label for="findBy">Find Client by</label>
-				<input type="radio" id="findBy" name="phone"> Phone
-				<input type="radio" id="findBy" name="email"> Email</li>
+				<input type="radio" id="findBy" name="findBy" value="phone"> Phone
+				<input type="radio" id="findBy" name="findBy" value="email"> Email</li>
 				<li><input type="text" id="clientInfo" name="clientInfo"></li>
 				<li><input type="submit" value="Submit"></li>
 				<li><a href="makeReservation.jsp">New Client Reservation</li>

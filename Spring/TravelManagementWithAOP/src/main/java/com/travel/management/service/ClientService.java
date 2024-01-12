@@ -17,6 +17,6 @@ public class ClientService {
 	}
 	
 	public Client findClientByEmail(String email) {
-		return dao.findClientByPhone(email);
+		return dao.findClientByEmail(email);
 	}
 }
