@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Make a Reservation</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css"/>
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 
 </head>
 </head>
@@ -22,7 +22,7 @@
 				<input type="radio" id="findBy" name="findBy" value="email"> Email</li>
 				<li><input type="text" id="clientInfo" name="clientInfo"></li>
 				<li><input type="submit" value="Submit"></li>
-				<li><a href="makeReservation.jsp">New Client Reservation</li>
+				<li><a href="makeNewClientReservation">New Client Reservation</a></li>
 			</ul>
 		</form>
 	</div>

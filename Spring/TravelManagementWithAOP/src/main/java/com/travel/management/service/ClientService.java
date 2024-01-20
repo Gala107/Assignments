@@ -3,8 +3,8 @@ package com.travel.management.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.travel.management.bean.Client;
 import com.travel.management.dao.ClientDao;
-import com.travel.management.entity.Client;
 
 @Service
 public class ClientService {
@@ -18,5 +18,9 @@ public class ClientService {
 	
 	public Client findClientByEmail(String email) {
 		return dao.findClientByEmail(email);
+	}
+	
+	public void saveClient(Client client) {
+		dao.saveClient(client);
 	}
 }

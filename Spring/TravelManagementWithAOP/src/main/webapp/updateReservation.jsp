@@ -1,41 +1,75 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Participant</title>
-<link rel="stylesheet" href="/css/styles.css" />
+<title>Update a Reservation</title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/styles.css" />
 
 </head>
 <body>
 	<div class="center">
-		<%@include file="navigationBar.html" %>
-		<h1>Update Participant</h1>
-		<form action="ParticipantController" method="post">
+		<%@include file="navigationBar.html"%>
+		<h1>Update a Reservation</h1>
+		<form action="saveUpdateReservation" method="post">
 
-			<ul>
-				<li><label for="name">Full Name</label><br> <input
-					type="text" id="name" name="name"
-					value="<%=%>"></li>
-				<li><label for="phone">Phone</label><br> <input
-					type="text" id="phone" name="phone" value="<%=%>"></li>
-				<li><label for="email">Email</label><br> <input
-					type="text" id="email" name="email" value="<%=%>"></li>
-				<li><label for="batch">Batch</label><br> <select
-					id="batch" name="batch">
-						<c:forEach items="<%=%>" var="batch">
-							<option value="${batch.getId()}"
-								<c:if test="${batch.getId() == participantId}">selected</c:if>>${batch.getId()}:
-								${batch.getWeekDay()} at ${batch.getStartTime()}</option>
-						</c:forEach>
-				</select></li>
-				<li><input type="submit" value="Update"></li>
-			</ul>
-			<input type="hidden" id="action" name="action" value="update">
-			<input type="hidden" id="participantId" name="participantId"
-				value="<%=%>">
+			<table>
+				<tr>
+					<td><label for="name">Client Name</label><br> 
+					<input type="text" id="name" name="client.name" value="${requestScope.reservation.client.name}" readonly></td>
+				</tr>
+				<tr>
+					<td><div>
+							<label>Phone</label><br> 
+							<input type="text" id="phone" name="client.phone" value="${requestScope.reservation.client.phone}" readonly>
+						</div></td>
+					<td><div>
+							<label>Email</label><br> 
+							<input type="text" id="email" name="client.email" value="${requestScope.reservation.client.email}" readonly>
+						</div></td>
+				</tr>
+				<tr>
+					<td><div>
+							<label for="pickupLocation">Pickup Location</label><br> 
+							<input type="text" id="pickupLocation" name="pickupLocation"
+								 value="${requestScope.reservation.pickupLocation}">
+						</div></td>
+					<td><div>
+							<label for="pickupTime">Pickup Time</label><br> <input
+								type="text" id="pickupTime" name="pickupTime"
+								 value="${requestScope.reservation.pickupTime}">
+						</div></td>
+				</tr>
+				<tr>
+					<td><label for="destination">Destination</label><br> <input
+						type="text" id="destination" name="destination"  value="${requestScope.reservation.destination}">
+					</td>
+				</tr>
+				<tr>
+					<td><label for="passengerNum">Number of Passengers</label><br>
+						<input type="number" id="passengerNum" name="passengerNum"
+						 value="${requestScope.reservation.passengerNum}"></td>
+				</tr>
+				<tr>
+					<td><label for="taxi">Taxi</label><br> 
+					<select id="taxi" name="taxiInfo.id">
+							<core:forEach items="${requestScope.taxi}" var="item">
+								<option value="${item.id}" ${item.id == requestScope.reservation.taxiInfo.id ? 'selected' : ''}>
+									<core:out value="${item.carModel} - ${item.licensePlate}" />
+								</option>
+							</core:forEach>
+					</select></td>
+					<td><label for="luggage">Is there a Luggage?</label> <input
+						type="checkbox" id="luggage" name="luggage" value="${requestScope.reservation.luggage}"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit"></td>
+				</tr>
+			</table>
+			<input type="hidden" name="client.id" value="${requestScope.reservation.client.id}" />
 		</form>
 	</div>
 </body>

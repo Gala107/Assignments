@@ -10,54 +10,73 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.travel.management.entity.Client;
-import com.travel.management.entity.TaxiInfo;
-import com.travel.management.entity.TaxiReservation;
+import com.travel.management.bean.Client;
+import com.travel.management.bean.TaxiReservation;
+import com.travel.management.service.ClientService;
+import com.travel.management.service.TaxiInfoService;
 import com.travel.management.service.TaxiReservationService;
 
 @Controller
 public class TaxiReservationController {
 
 	@Autowired
-	TaxiReservationService service;
+	ClientService clientService;
+	@Autowired
+	TaxiReservationService taxiService;
+	@Autowired
+	TaxiInfoService infoService;
 
 	@RequestMapping(value = "makeReservation", method = RequestMethod.POST)
-	public ModelAndView makeReservation(HttpServletRequest request, TaxiReservation taxiReservation) {
-
-		String name = request.getParameter("name");
-		String phone = request.getParameter("phone");
-		String email = request.getParameter("email");
-
-		String taxi = request.getParameter("taxi");
-
-		String pickupLocation = request.getParameter("pickupLocation");
-		String pickupTime = request.getParameter("pickupTime");
-		String destination = request.getParameter("destination");
-		int passengerNum = Integer.parseInt(request.getParameter("passengerNum"));
-		boolean luggage = "yes".equals(request.getParameter("luggage"));
-
+	public ModelAndView makeReservation(TaxiReservation taxiReservation, ModelAndView view) {
 		Client client = taxiReservation.getClient();
-		client.setName(name);
-		client.setPhone(phone);
-		client.setEmail(email);
+		if (client.getId() == 0) {
+			clientService.saveClient(client);
+		}
+		taxiService.saveTaxiReservation(taxiReservation);
 
-		TaxiInfo taxiInfo = taxiReservation.getTaxiInfo();
-		taxiInfo.setId(passengerNum);
-		taxiInfo.setCarModel(taxi);
-		taxiInfo.setLicensePlate(taxi);
-
-		taxiReservation.setPickupLocation(pickupLocation);
-		taxiReservation.setPickupTime(pickupTime);
-		taxiReservation.setDestination(destination);
-		taxiReservation.setPassengerNum(passengerNum);
-		taxiReservation.setLuggage(luggage);
-
-		service.saveTaxiReservation(taxiReservation);
-		List<TaxiReservation> taxiReservations = service.getAllTaxiReservations();
-
-		ModelAndView model = new ModelAndView();
-		model.addObject("taxiReservations", taxiReservations);
-		model.setViewName("viewReservations.jsp");	
-		return model;
+		view.addObject("taxiReservations", getTaxiReservations());
+		view.setViewName("viewReservations.jsp");	
+		return view;
+	}
+	
+	@RequestMapping(value="deleteReservation", method=RequestMethod.GET)
+	public ModelAndView deleteReservation(HttpServletRequest request, ModelAndView view) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		taxiService.deleteTaxiReservation(id);
+		
+		view.addObject("taxiReservations", getTaxiReservations());
+		view.setViewName("viewReservations.jsp");	
+		return view;
+	}
+	
+	@RequestMapping(value="viewReservations", method=RequestMethod.GET)
+	public ModelAndView viewReservations(ModelAndView view) {
+		view.addObject("taxiReservations", getTaxiReservations());
+		view.setViewName("viewReservations.jsp");	
+		return view;
+	}
+	
+	@RequestMapping(value = "updateReservation", method = RequestMethod.GET)
+	public ModelAndView makeReservation(HttpServletRequest request, ModelAndView view) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		TaxiReservation reservation = taxiService.getTaxiReservation(id);
+		
+		view.addObject("reservation", reservation);
+		view.addObject("taxi",infoService.getAllTaxiInfo());
+		view.setViewName("updateReservation.jsp");	
+		return view;
+	}
+	
+	@RequestMapping(value = "saveUpdateReservation", method = RequestMethod.POST)
+	public ModelAndView saveUpdateReservation(TaxiReservation taxiReservation, ModelAndView view) {
+		taxiService.updateTaxiReservation(taxiReservation);
+		
+		view.addObject("taxiReservations", getTaxiReservations());
+		view.setViewName("viewReservations.jsp");	
+		return view;
+	}
+	
+	private List<TaxiReservation> getTaxiReservations() {
+		return taxiService.getAllTaxiReservations();
 	}
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.travel.management.entity.TaxiInfo;
+import com.travel.management.bean.TaxiInfo;
 import com.travel.management.service.TaxiInfoService;
 
 @Controller

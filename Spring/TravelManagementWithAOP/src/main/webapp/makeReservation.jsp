@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="core"%>
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,16 +19,19 @@
 			<table>
 				<tr>
 					<td><label for="name">Client Name</label><br> <input
-						type="text" id="name" name="name" placeholder="John Watson" value="${requestScope.client.getName()}">
-					</td>
+						type="text" id="name" name="client.name" placeholder="John Watson"
+						value="${requestScope.client.name}"></td>
 				</tr>
 				<tr>
 					<td><div>
-							<label>Phone</label><br> <input type="text" id="phone" name="phone" placeholder="919 999 1111" value="${requestScope.client.phone}">
+							<label>Phone</label><br> <input type="text" id="phone"
+								name="client.phone" placeholder="919 999 1111"
+								value="${requestScope.client.phone}">
 						</div></td>
 					<td><div>
 							<label>Email</label><br> <input type="text" id="email"
-								name="email" placeholder="john@example.com">
+								name="client.email" placeholder="john@example.com"
+								value="${requestScope.client.email}">
 						</div></td>
 				</tr>
 				<tr>
@@ -54,13 +57,11 @@
 						placeholder="4"></td>
 				</tr>
 				<tr>
-					<td><label for="taxi">Type of Taxi</label><br> 
-					<select id="taxi" name="taxi">
-							<core:forEach items="${requestScope.taxiInfo}" var="taxiInfo">
-								<li><core:out value="${taxiInfo.getId()}"></core:out>
-									: <core:out value="${taxiInfo.getCarModel()}"></core:out>
-									: <core:out value="${taxiInfo.getLicensePlate()}"></core:out>
-								</li>
+					<td><label for="taxi">Taxi</label><br> <select id="taxi"
+						name="taxiInfo.id">
+							<core:forEach items="${requestScope.taxi}" var="item">
+								<option value="${item.id}"><core:out
+										value="${item.carModel} - ${item.licensePlate}" /></option>
 							</core:forEach>
 					</select></td>
 					<td><label for="luggage">Is there a Luggage?</label> <input
@@ -70,6 +71,9 @@
 					<td><input type="submit" value="Submit"></td>
 				</tr>
 			</table>
+			<core:if test="requestScope.client.id != ''">
+				<input type="hidden" name="client.id" value="${requestScope.client.id}" />
+			</core:if>
 		</form>
 	</div>
 </body>

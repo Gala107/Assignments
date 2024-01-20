@@ -1,4 +1,4 @@
-package com.travel.management.entity;
+package com.travel.management.bean;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

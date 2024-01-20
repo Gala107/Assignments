@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.travel.management.bean.TaxiReservation;
 import com.travel.management.dao.TaxiReservationDao;
-import com.travel.management.entity.TaxiReservation;
 
 @Service
 public class TaxiReservationService {
@@ -18,7 +18,19 @@ public class TaxiReservationService {
 		dao.saveTaxiReservation(taxiReservation);
 	}
 	
+	public TaxiReservation getTaxiReservation(int id) {
+		return dao.getTaxiReservation(id);
+	}
+	
+	public void updateTaxiReservation(TaxiReservation taxiReservation) {
+		dao.updateTaxiReservation(taxiReservation);
+	}
+	
 	public List<TaxiReservation> getAllTaxiReservations() {
 		return dao.getAllTaxiReservations();
+	}
+	
+	public void deleteTaxiReservation(int id ) {
+		dao.deleteTaxiReservation(id);
 	}
 }
