@@ -1,20 +1,19 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Make a Reservation</title>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/styles.css" />
+<c:url value="/resources/css/styles.css" var="styles" />
+<link rel="stylesheet" type="text/css" media="screen" href="${styles}" />
 
 </head>
 <body>
 	<div class="center">
 		<%@include file="navigationBar.html"%>
 		<h1>Make a Reservation</h1>
-		<form action="makeReservation" method="post">
+		<form action="saveReservation" method="post">
 
 			<table>
 				<tr>
@@ -57,12 +56,13 @@
 						placeholder="4"></td>
 				</tr>
 				<tr>
-					<td><label for="taxi">Taxi</label><br> <select id="taxi"
-						name="taxiInfo.id">
-							<core:forEach items="${requestScope.taxi}" var="item">
-								<option value="${item.id}"><core:out
-										value="${item.carModel} - ${item.licensePlate}" /></option>
-							</core:forEach>
+					<td><label for="taxi">Taxi</label><br> 
+					<select id="taxi" name="taxiInfo.id">
+							<c:forEach items="${requestScope.taxi}" var="item">
+								<option value="${item.id}" >
+									<c:out value="${item.carModel} - ${item.licensePlate}" />
+								</option>
+							</c:forEach>
 					</select></td>
 					<td><label for="luggage">Is there a Luggage?</label> <input
 						type="checkbox" id="luggage" name="luggage" value="yes"></td>
@@ -71,9 +71,9 @@
 					<td><input type="submit" value="Submit"></td>
 				</tr>
 			</table>
-			<core:if test="requestScope.client.id != ''">
+			<c:if test="${requestScope.client.id != ''}">
 				<input type="hidden" name="client.id" value="${requestScope.client.id}" />
-			</core:if>
+			</c:if>
 		</form>
 	</div>
 </body>

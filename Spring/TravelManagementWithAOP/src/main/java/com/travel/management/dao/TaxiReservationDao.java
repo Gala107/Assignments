@@ -20,16 +20,21 @@ public class TaxiReservationDao {
 
 	public boolean saveTaxiReservation(TaxiReservation taxiReservation) {
 		Transaction transaction = null;
+		Session session = null;
 		try {
-			Session session = sessionFactory.openSession();
+			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
 			session.save(taxiReservation);
 			transaction.commit();
+			session.close();
 			return true;
 		} catch (Exception e) {
 			System.err.println(e);
 			if (transaction != null) {
 				transaction.rollback();
+			}
+			if (session != null) {
+				session.close();
 			}
 			return false;
 		}
@@ -37,16 +42,22 @@ public class TaxiReservationDao {
 	
 	public boolean updateTaxiReservation(TaxiReservation taxiReservation) {
 		Transaction transaction = null;
+		Session session = null;
 		try {
-			Session session = sessionFactory.openSession();
+			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
-			session.update(taxiReservation);
+			
+			session.merge(taxiReservation);
 			transaction.commit();
+			session.close();
 			return true;
 		} catch (Exception e) {
 			System.err.println(e);
 			if (transaction != null) {
 				transaction.rollback();
+			}
+			if (session != null) {
+				session.close();
 			}
 			return false;
 		}
@@ -54,29 +65,38 @@ public class TaxiReservationDao {
 	
 	public TaxiReservation getTaxiReservation(int id) {
 		Session session = sessionFactory.openSession();
-		return session.get(TaxiReservation.class, id);
+		TaxiReservation taxiReservation = session.get(TaxiReservation.class, id);
+		session.close();
+		return taxiReservation;
 	}
 
 	public List<TaxiReservation> getAllTaxiReservations() {
 		Session session = sessionFactory.openSession();
 		TypedQuery<TaxiReservation> query = session.createQuery("select t from TaxiReservation t",
 				TaxiReservation.class);
-		return query.getResultList();
+		List<TaxiReservation> reservations = query.getResultList();
+		session.close();
+		return reservations;
 	}
 
 	public void deleteTaxiReservation(int id) {
 		Transaction transaction = null;
+		Session session = null;
 		try {
-			Session session = sessionFactory.openSession();
+			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
 			
 			TaxiReservation reservation = session.get(TaxiReservation.class, id);
 			session.delete(reservation);
 			
 			transaction.commit();
+			session.close();
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
+			}
+			if (session != null) {
+				session.close();
 			}
 			System.err.println(e);
 		}

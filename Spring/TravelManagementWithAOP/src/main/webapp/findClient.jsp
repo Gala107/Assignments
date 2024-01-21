@@ -1,11 +1,12 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Make a Reservation</title>
-<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+<c:url value="/resources/css/styles.css" var="styles" />
+<link rel="stylesheet" type="text/css" href="${styles}" />
 
 </head>
 </head>
@@ -22,7 +23,7 @@
 				<input type="radio" id="findBy" name="findBy" value="email"> Email</li>
 				<li><input type="text" id="clientInfo" name="clientInfo"></li>
 				<li><input type="submit" value="Submit"></li>
-				<li><a href="makeNewClientReservation">New Client Reservation</a></li>
+				<li><a href="getTaxiInfo">New Client Reservation</a></li>
 			</ul>
 		</form>
 	</div>

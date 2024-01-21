@@ -5,7 +5,6 @@ import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -20,10 +19,11 @@ public class ClientDao {
 	public Client findClientByPhone(String phone) {
 		try {
 			Session session = sessionFactory.openSession();
-			TypedQuery<Client> query = session.createQuery("select c from Client c where c.phone = :phone",
-					Client.class);
+			TypedQuery<Client> query = session.createQuery("select c from Client c where c.phone = :phone", Client.class);
 			query.setParameter("phone", phone);
-			return query.getSingleResult();
+			Client client = query.getSingleResult();
+			session.close();
+			return client;
 		} catch (NoResultException e) {
 			return null;
 		}
@@ -35,7 +35,9 @@ public class ClientDao {
 			TypedQuery<Client> query = session.createQuery("select c from Client c where c.email = :email",
 					Client.class);
 			query.setParameter("email", email);
-			return query.getSingleResult();
+			Client client = query.getSingleResult();
+			session.close();
+			return client;
 		} catch (NoResultException e) {
 			return null;
 		}
@@ -47,6 +49,7 @@ public class ClientDao {
 			session.beginTransaction();
 			session.save(client);
 			session.getTransaction().commit();
+			session.close();
 			return true;
 		} catch (Exception e) {
 			System.err.println(e);

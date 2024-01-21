@@ -1,13 +1,13 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Update a Reservation</title>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/styles.css" />
+<c:url value="/resources/css/styles.css" var="styles" />
+<link rel="stylesheet" type="text/css" media="screen" href="${styles}" />
 
 </head>
 <body>
@@ -56,11 +56,11 @@
 				<tr>
 					<td><label for="taxi">Taxi</label><br> 
 					<select id="taxi" name="taxiInfo.id">
-							<core:forEach items="${requestScope.taxi}" var="item">
+							<c:forEach items="${requestScope.taxi}" var="item">
 								<option value="${item.id}" ${item.id == requestScope.reservation.taxiInfo.id ? 'selected' : ''}>
 									<core:out value="${item.carModel} - ${item.licensePlate}" />
 								</option>
-							</core:forEach>
+							</c:forEach>
 					</select></td>
 					<td><label for="luggage">Is there a Luggage?</label> <input
 						type="checkbox" id="luggage" name="luggage" value="${requestScope.reservation.luggage}"></td>

@@ -62,11 +62,6 @@ td {
 	width: 20%;
 }
 
-#tableB th,
-#tableB td {
-	width: 28%;
-}
-
 img {
 	width: 35px;
 	height: 35px;
@@ -90,7 +85,7 @@ img {
 
 .center {
 	margin: auto;
-	width: 50%;
+	width: 55%;
 	border: 3px solid rgb(97, 100, 237);
 	border-radius: 16px;
 	padding: 30px;
