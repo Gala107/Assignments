@@ -17,13 +17,6 @@ public class TaxiInfoController {
 	@Autowired
 	TaxiInfoService service;
 	
-	@RequestMapping(value = "getTaxiInfo", method = RequestMethod.GET)
-	public ModelAndView getTaxiInfo(ModelAndView view) {
-		view.addObject("taxi", service.getAllTaxiInfo());
-		view.setViewName("makeReservation.jsp");
-		return view;
-	}
-	
 	@RequestMapping(value = "getClientFrom", method = RequestMethod.GET)
 	public ModelAndView getTaxiInfo(@ModelAttribute("client") Client client, ModelAndView view) {
 		view.addObject("taxi", service.getAllTaxiInfo());

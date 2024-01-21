@@ -23,7 +23,7 @@
 				<input type="radio" id="findBy" name="findBy" value="email"> Email</li>
 				<li><input type="text" id="clientInfo" name="clientInfo"></li>
 				<li><input type="submit" value="Submit"></li>
-				<li><a href="getTaxiInfo">New Client Reservation</a></li>
+				<li><a href="getClientFrom">New Client Reservation</a></li>
 			</ul>
 		</form>
 	</div>
