@@ -69,7 +69,8 @@ public class MainTest {
 		System.out.println("[MainTest] groupTest");
 	}
 
-	@Test public void testLuckyNumber() { 
+	@Test 
+	public void testLuckyNumber() { 
 		Exception exception = assertThrows(ArrayIndexOutOfBoundsException.class, ()->promoCode.luckyPromoCode(7)); 
 		//System.out.println("Message: " + exception.getMessage()); 
 		assertEquals("Index 7 out of bounds for length 5", exception.getMessage()); 
