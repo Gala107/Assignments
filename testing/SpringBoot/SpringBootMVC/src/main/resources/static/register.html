@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Welcome to eStore</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+   <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Account</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+		<div class="mt-4 p-5 bg-primary text-white rounded">
+			<h1>Welcome to eStore</h1>
+			<p>Shop from Clothing to Electronics to Toys in No Time!</p>
+		</div>
+<br><br>
+<h3>Register Here</h3>
+<form action="/app/register" method="post">
+ <div class="mb-3">
+    <label for="name" class="form-label">Enter Your Name</label>
+    <input type="text" class="form-control" id="name" name="name" style="width:300px">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Enter Your Email</label>
+    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" style="width:300px">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" name="password" style="width:300px">
+  </div>
+  <button type="submit" class="btn btn-primary">REGISTER</button>
+</form>
+	</div>
+
+
+</body>
+</html>
