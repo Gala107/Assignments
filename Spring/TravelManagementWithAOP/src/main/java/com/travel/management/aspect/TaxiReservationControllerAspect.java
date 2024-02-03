@@ -19,7 +19,7 @@ public class TaxiReservationControllerAspect {
 		TaxiReservation reservation = (TaxiReservation) joinPoint.getArgs()[0];
 		Client client = reservation.getClient();
 		Date recordCreatedDate = new Date();
-		System.out.println("Taxi Reservation record is created for " + client.getName() + " on " + recordCreatedDate);
+		System.out.println("[TaxiReservationControllerAspect] Taxi Reservation record is created for " + client.getName() + " on " + recordCreatedDate);
 	}
 	
 	@After("execution(* com.travel.management.controller.TaxiReservationController.deleteReservation(..))")
@@ -27,6 +27,6 @@ public class TaxiReservationControllerAspect {
 		HttpServletRequest request = (HttpServletRequest) joinPoint.getArgs()[0];
 		String id = request.getParameter("id");
 		Date recordDeletedDate = new Date();
-		System.out.println("Taxi Reservation record with ID=" + id + " is deleted on " + recordDeletedDate);
+		System.out.println("[TaxiReservationControllerAspect] Taxi Reservation record with ID=" + id + " is deleted on " + recordDeletedDate);
 	}
 }

@@ -17,4 +17,8 @@ public class TaxiInfoService {
 	public List<TaxiInfo> getAllTaxiInfo() {
 		return dao.getAllTaxiInfo();
 	}
+	
+	public TaxiInfo getTaxiInfo(int id) {
+		return dao.getTaxiInfo(id);
+	}
 }

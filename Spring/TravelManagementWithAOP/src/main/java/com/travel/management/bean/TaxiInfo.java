@@ -1,5 +1,6 @@
 package com.travel.management.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,9 @@ public class TaxiInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(name = "car_model")
 	private String carModel;
+	@Column(name = "license_plate")
 	private String licensePlate;
 	
 	public int getId() {

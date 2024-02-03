@@ -29,6 +29,7 @@
 		<value>com.travel.management.bean.Client</value>
 		<value>com.travel.management.bean.TaxiReservation</value>
 		<value>com.travel.management.bean.TaxiInfo</value>
+		<value>com.travel.management.bean.TaxiFare</value>
 	</list>
 	</property>
 	
