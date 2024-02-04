@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Make a Reservation</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<div class="center">
+		<div th:insert="~{/navigationBar :: navbar}"></div>
+		<h1>Make a Reservation</h1>
+		
+		<form action="#" th:action="@{/client/getClient}" method="post">
+			<ul>
+				<li class="warning" th:text="${msg}"></li>
+				<li><label for="findBy">Find Client by</label>
+				<input type="radio" th:name="findBy" th:value="phone"/> Phone
+				<input type="radio" th:name="findBy" th:value="email"/> Email</li>
+				<li><input type="text" th:name="clientInfo" /></li>
+				<li><input type="submit" value="Submit" /></li>
+				<li><a href="/info/getClientFrom">New Client Reservation</a></li>
+			</ul>
+		</form>
+	</div>
+</body>
+</html>

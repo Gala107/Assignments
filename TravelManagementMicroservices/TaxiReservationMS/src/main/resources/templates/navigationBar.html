@@ -1,6 +1,17 @@
-<div class="navigator">
-	<a href="index.jsp">Home</a> 
-	<a href="findClient.jsp">Make a Reservation</a> 
-	<a href="viewReservations">Reservations</a> 
-	<a href="viewFares">Available Fares</a> 
-</div>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NavigationBar</title>
+
+</head>
+<body>
+<nav th:fragment="navbar" class="navigator">
+	<a th:href="@{/}">Home</a> 
+	<a th:href="@{/client/findClient}">Make a Reservation</a> 
+	<a th:href="@{/reservation/viewReservations}">Reservations</a> 
+	<a th:href="@{/fare/viewFares}">Available Fares</a> 
+</nav>
+
+</body>
+</html>

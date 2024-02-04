@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Available Fares</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+
+<body>
+	<div class="center">
+		<div th:insert="~{/navigationBar :: navbar}"></div>
+		<h1>Available Fares</h1>
+		<table id="tableB">
+			<thead>
+				<tr>
+					<th>Amount</th>
+					<th>Pickup Location</th>
+					<th>Destination</th>
+					<th>Taxi Model</th>
+					<th># of Passengers</th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr th:each="taxiFare: @{taxiFares}">
+						<td th:text="${taxiFare.fare}" />
+						<td th:text="${taxiFare.pickupLocation}" />
+						<td th:text="${taxiFare.destination}" />
+						<td th:text="${taxiFare.carModel}" />
+						<td th:text="${taxiFare.passengerNum}" />
+					</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

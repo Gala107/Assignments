@@ -21,6 +21,6 @@ public class ClientService {
 	}
 	
 	public void saveClient(Client client) {
-		repository.save(client);
+		repository.saveAndFlush(client);
 	}
 }

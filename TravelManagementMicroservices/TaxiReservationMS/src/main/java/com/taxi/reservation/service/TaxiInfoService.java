@@ -19,6 +19,6 @@ public class TaxiInfoService {
 	}
 	
 	public TaxiInfo getTaxiInfo(int id) {
-		return repository.getReferenceById(id);
+		return repository.findById(id).get();
 	}
 }

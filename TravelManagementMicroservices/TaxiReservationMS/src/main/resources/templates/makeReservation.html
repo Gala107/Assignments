@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Make a Reservation</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+
+<body>
+	<div class="center">
+		<div th:insert="~{/navigationBar :: navbar}"></div>
+		<h1>Make a Reservation</h1>
+		<form action="#" th:action="@{/reservation/saveReservation}" method="post" th:object="${reservation}">
+			<table>
+				<tr>
+					<td>
+						<label for="name">Client Name</label><br/><input type="text" th:field="${client.name}" placeholder="John Smith" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div><label>Phone</label><br/><input type="text" th:field="${client.phone}" placeholder="812 232 2231" /></div>
+					</td>
+					<td>
+						<div><label>Email</label><br/><input type="text" th:field="${client.email}" placeholder="john@me.com"/></div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div><label for="pickupLocation">Pickup Location</label><br/><input type="text" th:field="*{pickupLocation}" placeholder="Home"/></div>
+					</td>
+					<td>
+						<div><label for="pickupTime">Pickup Time</label><br/><input type="text" th:field="*{pickupTime}" placeholder="10am"/></div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="destination">Destination</label><br/><input type="text" th:field="*{destination}" placeholder="Park"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="passengerNum">Number of Passengers</label><br/><input type="number" th:field="*{passengerNum}" placeholder="4"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Taxi</label><br/>
+						<select th:field="*{taxiInfo.id}">
+							<option th:each="taxiModel:${taxi}" th:value="${taxiModel.id}" th:text="${taxiModel.carModel}"/>
+						</select>
+					</td>
+					<td>
+						<label for="luggage">Is there a Luggage?</label><input type="checkbox" th:field="*{luggage}" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit" /></td>
+				</tr>
+			</table>
+			<div th:if="${client.id != ''}"><input type="hidden" th:field="*{client.id}" /></div>		
+		</form>
+	</div>
+</body>
+</html>

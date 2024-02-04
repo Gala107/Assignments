@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Reservation Confirmation</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<div class="center">
+		<div th:insert="~{/navigationBar :: navbar}"></div>
+		<h1>Reservation Confirmation</h1>
+		<table id="confirmReservation">
+			<tr>
+				<td><label>Client Name : </label><span th:text="${reservation.client.name}" /></td>
+			</tr>
+			<tr>
+				<td><label>Phone : </label><span th:text="${reservation.client.phone}" /></td>
+				<td><label>Email : </label><span th:text="${reservation.client.email}" /></td>
+			</tr>
+			<tr>
+				<td><label>Pickup Location : </label><span th:text="${reservation.pickupLocation}" /></td>
+				<td><label>Pickup Time : </label><span th:text="${reservation.pickupTime}" /></td>
+			</tr>
+			<tr>
+				<td><label>Destination : </label><span th:text="${reservation.destination}" /></td>
+			</tr>
+			<tr>
+				<td><label>Number of Passengers : </label><span th:text="${reservation.passengerNum}" /></td>
+			</tr>
+			<tr>
+				<td><label>Taxi : </label><span th:text="${reservation.taxiInfo.carModel}" /></td>
+				<td><label>Is there a Luggage? </label><span th:text="${reservation.luggage} ? 'Yes' : 'No'" /></td>
+			</tr>
+			<tr>
+				<td><label>Fare : </label><span th:text="${reservation.fare == 0.0} ? ${msg } : ${reservation.fare}" /></td>
+			</tr>
+		</table>
+
+	</div>
+</body>
+</html>

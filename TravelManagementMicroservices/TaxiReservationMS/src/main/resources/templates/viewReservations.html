@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Reservations</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+
+<body>
+	<div class="center">
+		<div th:insert="~{/navigationBar :: navbar}"></div>
+		<h1>Reservations</h1>
+		<table id="tableB">
+			<thead>
+				<tr>
+					<th>Pickup</th>
+					<th>Destination</th>
+					<th>Taxi</th>
+					<th>Fare</th>
+					<th>Client</th>
+					<th>Email</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr th:each="reservation: ${taxiReservations}">
+						<td th:text="${reservation.pickupLocation} + '/' + ${reservation.pickupTime}" />
+						<td th:text="${reservation.destination}" />
+						<td th:text="${reservation.taxiInfo.carModel}" />
+						<td th:text="${reservation.fare == 0.0 ? 'n/a' : reservation.fare}" />					
+						<td th:text="${reservation.client.name}" />
+						<td th:text="${reservation.client.email}" />
+						<td>
+							<a th:href="@{/reservation/updateReservation?{id}(id=${reservation.id})}"><img th:src="@{/images/update.jpg}" /></a>
+							<a th:href="@{/reservation/deleteReservation?{id}(id=${reservation.id})}"><img th:src="@{/images/delete.png}" /></a></td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -10,9 +10,9 @@ import com.taxi.reservation.bean.Client;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Integer> {
 
-	@Query("select * from Client c where c.email = :email")
+	@Query("select c from Client c where c.email = :email")
 	public Client findByEmail(@Param("email") String email);
 	
-	@Query("select * from Client c where c.phone = :phone")
+	@Query("select c from Client c where c.phone = :phone")
 	public Client findByPhone(@Param("phone") String phone);
 }
