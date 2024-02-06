@@ -1,0 +1,22 @@
+Databases used:
+create database fare_calculation_ms;
+create database taxi_reservation_ms;
+
+Pre-populate table in taxi_reservation_ms:
+insert into taxi_info values(0, "Acura RDX", "AR 203");
+insert into taxi_info values(0, "Acura MDX", "AM 423");
+insert into taxi_info values(0, "Toyota Camry", "KU 123");
+insert into taxi_info values(0, "Chevrolet Camaro", "CC 392");
+insert into taxi_info values(0, "Chevrolet Equinox", "CE 098");
+insert into taxi_info values(0, "Honda Odyssey", "HO 201");
+
+Pre-populate table in fare_calculation_ms:
+insert into taxi_fare values(0, "Acura RDX", "Home", 130, 4, "Work");
+insert into taxi_fare values(0, "Acura MDX", "Home", 200, 4, "Airport");
+insert into taxi_fare values(0, "Toyota Camry", "Home", 250, 4, "Stadium");
+insert into taxi_fare values(0, "Honda Odyssey", "Work", 130, 4, "Home");
+insert into taxi_fare values(0, "Chevrolet Equinox", "Airport", 270, 4, "Home");
+insert into taxi_fare values(0, "Acura MDX", "Stadium", 90, 4, "Home");
+
+Project GitHub repo:
+https://github.com/Gala107/Assignments/tree/main/TravelManagementMicroservices
