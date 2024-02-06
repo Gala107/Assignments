@@ -1,15 +1,13 @@
 package com.taxi.reservation.controller;
 
-import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.taxi.reservation.bean.Client;
 import com.taxi.reservation.bean.TaxiInfo;
@@ -34,7 +32,6 @@ public class TaxiReservationController {
 		if (client.getId() == 0) {
 			clientService.saveClient(client);
 		}
-		//taxiReservation.setFare(getTaxiFare(taxiReservation));
 		taxiReservation.setClient(client);
 		taxiReservation.setTaxiInfo(getTaxiInfo(taxiReservation));
 		taxiService.saveTaxiReservation(taxiReservation);
@@ -47,10 +44,9 @@ public class TaxiReservationController {
 		return view;
 	}
 
-	@GetMapping(value = "deleteReservation")
-	public ModelAndView deleteReservation(@RequestParam(value="id") String id, ModelAndView view) {
-		int reservationId = Integer.parseInt(id);
-		taxiService.deleteTaxiReservation(reservationId);
+	@GetMapping(value = "deleteReservation/{id}")
+	public ModelAndView deleteReservation(@PathVariable(value = "id") int id, ModelAndView view) {
+		taxiService.deleteTaxiReservation(id);
 		return setTaxiReservationsView(view);
 	}
 
@@ -58,25 +54,14 @@ public class TaxiReservationController {
 	public ModelAndView viewReservations(ModelAndView view) {
 		return setTaxiReservationsView(view);
 	}
-
-	@PostMapping(value = "saveUpdateReservation")
-	public ModelAndView saveUpdateReservation(TaxiReservation taxiReservation, ModelAndView view) {
-		//taxiReservation.setFare(getTaxiFare(taxiReservation));
-		taxiService.updateTaxiReservation(taxiReservation);
-		return setTaxiReservationsView(view);
-	}
-
-	@GetMapping(value = "updateReservation")
-	public ModelAndView updateReservation(@RequestParam(value="id") String id, final RedirectAttributes redirectAttributes,
-			ModelAndView view) {
-		int reservationId = Integer.parseInt(id);
-		TaxiReservation reservation = taxiService.getTaxiReservation(reservationId);
-
-		redirectAttributes.addFlashAttribute("reservation", reservation);
-		view.setViewName("redirect:updateReservationFrom");
+	
+	@GetMapping(value = "viewFares")
+	public ModelAndView viewFares(ModelAndView view) {
+		view.addObject("fares", taxiService.findAllTaxiFares());
+		view.setViewName("viewFares");
 		return view;
 	}
-
+		
 	private ModelAndView setTaxiReservationsView(ModelAndView view) {
 		view.addObject("taxiReservations", taxiService.getAllTaxiReservations());
 		view.setViewName("viewReservations");

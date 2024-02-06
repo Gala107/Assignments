@@ -30,6 +30,16 @@ public class TaxiFare {
 
 	}
 
+	public TaxiFare(int id, String pickupLocation, int passengerNum, String carModel, String destination, float fare) {
+		super();
+		this.id = id;
+		this.pickupLocation = pickupLocation;
+		this.passengerNum = passengerNum;
+		this.carModel = carModel;
+		this.destination = destination;
+		this.fare = fare;
+	}
+
 	public int getId() {
 		return id;
 	}

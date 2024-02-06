@@ -28,12 +28,11 @@
 						<td th:text="${reservation.pickupLocation} + '/' + ${reservation.pickupTime}" />
 						<td th:text="${reservation.destination}" />
 						<td th:text="${reservation.taxiInfo.carModel}" />
-						<td th:text="${reservation.fare == 0.0 ? 'n/a' : reservation.fare}" />					
+						<td th:text="${reservation.fare == 0.0 ? 'n/a' : '$' + reservation.fare}" />					
 						<td th:text="${reservation.client.name}" />
 						<td th:text="${reservation.client.email}" />
 						<td>
-							<a th:href="@{/reservation/updateReservation?{id}(id=${reservation.id})}"><img th:src="@{/images/update.jpg}" /></a>
-							<a th:href="@{/reservation/deleteReservation?{id}(id=${reservation.id})}"><img th:src="@{/images/delete.png}" /></a></td>
+							<a th:href="@{/reservation/deleteReservation/{id}(id=${reservation.id})}"><img th:src="@{/images/delete.png}" /></a>
 					</tr>
 			</tbody>
 		</table>

@@ -17,17 +17,15 @@
 					<th>Amount</th>
 					<th>Pickup Location</th>
 					<th>Destination</th>
-					<th>Taxi Model</th>
 					<th># of Passengers</th>
 				</tr>
 			</thead>
 			<tbody>
-					<tr th:each="taxiFare: @{taxiFares}">
-						<td th:text="${taxiFare.fare}" />
-						<td th:text="${taxiFare.pickupLocation}" />
-						<td th:text="${taxiFare.destination}" />
-						<td th:text="${taxiFare.carModel}" />
-						<td th:text="${taxiFare.passengerNum}" />
+					<tr th:each="taxiFare: ${fares}">
+						<td>$<span th:text="*{taxiFare.fare}"/></td>
+						<td th:text="*{taxiFare.pickupLocation}" />
+						<td th:text="*{taxiFare.destination}" />
+						<td th:text="*{taxiFare.passengerNum}" />
 					</tr>
 			</tbody>
 		</table>

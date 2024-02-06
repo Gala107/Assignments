@@ -34,7 +34,7 @@
 				<td><label>Is there a Luggage? </label><span th:text="${reservation.luggage} ? 'Yes' : 'No'" /></td>
 			</tr>
 			<tr>
-				<td><label>Fare : </label><span th:text="${reservation.fare == 0.0} ? ${msg } : ${reservation.fare}" /></td>
+				<td><label>Fare : </label><span th:text="${reservation.fare == 0.0} ? ${msg} : '$' + ${reservation.fare}" /></td>
 			</tr>
 		</table>
 

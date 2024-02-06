@@ -10,7 +10,7 @@ import com.fare.calculation.bean.TaxiFare;
 @Repository
 public interface TaxiFareRepository extends JpaRepository<TaxiFare, Integer> {
 
-	@Query("select f from TaxiFare f where f.pickupLocation = :pickupLocation and f.destination = :destination and f.passengerNum = :passengerNum")
-	public TaxiFare getTaxiFare(@Param("pickupLocation") String pickupLocation, @Param("destination") String destination,
+	@Query("select f.fare from TaxiFare f where f.pickupLocation = :pickupLocation and f.destination = :destination and f.passengerNum = :passengerNum")
+	public float getTaxiFare(@Param("pickupLocation") String pickupLocation, @Param("destination") String destination,
 			@Param("passengerNum") int passengerNum);
 }
