@@ -18,5 +18,10 @@ insert into taxi_fare values(0, "Honda Odyssey", "Work", 130, 4, "Home");
 insert into taxi_fare values(0, "Chevrolet Equinox", "Airport", 270, 4, "Home");
 insert into taxi_fare values(0, "Acura MDX", "Stadium", 90, 4, "Home");
 
+create table taxi_info(id int primary key auto_increment, car_model varchar(255), license_lplate varchar(255));
+
+create table taxi_reservation(id int primary key auto_increment, client_name varchar(255), client_email varchar(255), client_phone varchar(255), 
+pickup_location varchar(255), pickup_time varchar(255), destination varchar(255), passenger_num int, car_model varchar(255));
+
 Project GitHub repo:
 https://github.com/Gala107/Assignments/tree/main/TravelManagementMicroservices
