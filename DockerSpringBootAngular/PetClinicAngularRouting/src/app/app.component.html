@@ -1,0 +1,14 @@
+<div class="center">
+  <nav>
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/findOwner">Find Owner</a></li>
+      <li><a routerLink = "/viewOwners">View Owners</a></li>
+    </ul>
+  </nav>
+  
+  <h1 *ngIf="router.url == '/'">{{title}}</h1>
+  
+  <router-outlet></router-outlet>
+  
+  </div>

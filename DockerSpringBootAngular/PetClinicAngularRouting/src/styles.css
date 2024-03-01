@@ -1,0 +1,91 @@
+img {
+    width: 35px;
+    height: 35px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0 25px;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(208 215 247);
+    border-radius: 10px;
+	border: 2px solid rgb(200, 201, 249);
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: rgb(0, 0, 160);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+	font-weight: bold;
+}
+
+li a:hover {
+    color: rgb(97, 100, 237);
+}
+
+.center {
+	margin: auto;
+	width: 60%;
+	border: 3px solid rgb(97, 100, 237);
+	border-radius: 16px;
+	padding: 30px;
+	font-size: 20px;
+	color: rgb(0, 0, 160);
+    text-align: center;
+}
+
+input,
+select {
+	border: 2px solid rgb(200, 201, 249);
+	border-radius: 6px;
+	outline: none;
+	padding: 5px;
+	color: rgb(0, 0, 160);
+	font-size: 17px;
+}
+
+input[type=submit] {
+	color: rgb(0, 0, 160);
+	font-size: 18px;
+	font-weight: bold;
+	padding: 7px;
+	background: rgb(208 215 247);
+}
+
+input[type=checkbox] {
+	clip-path: circle(80% at 50% 50%);
+	accent-color: rgb(97, 100, 237);
+}
+
+th {
+	font-size: 25px;
+	border-bottom: 2px solid rgb(200, 201, 249);
+}
+
+th,
+td {
+	padding: 10px 0 10px 30px;
+	text-align: left;
+}
+
+#tableP th:nth-child(odd),
+#tableP td:nth-child(odd) {
+	width: 25%;
+}
+
+#tableP th:nth-child(2),
+#tableP td:nth-child(2) {
+	width: 20%;
+}
+
+#confirmReservation label {
+	font-weight: bold;
+}
+

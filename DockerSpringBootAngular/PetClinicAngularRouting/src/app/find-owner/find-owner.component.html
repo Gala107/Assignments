@@ -1,0 +1,26 @@
+   <h1>Find Owner</h1>  
+    <form [formGroup]="findOwnerForm" (ngSubmit)="findOwner()">
+        <table>
+            <tr>
+                <td class="warning">{{msg}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="findBy">Find Owner by</label>
+                    <input type="radio" id="findBy" formControlName="findBy" value="phone"/> Phone
+                    <input type="radio" ide="findBy" formControlName="findBy" value="email"/> Email
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="clientInfo" formControlName="clientInfo"/>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+            <tr>
+                <td><a routerLink="/manageOwner" skipLocationChange="true">New Owner</a></td>
+            </tr>
+        </table>
+    </form>
