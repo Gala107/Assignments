@@ -4,13 +4,13 @@ export class Pet {
 
     id: number;
     ownerId: number;
-    name: String;
-    type: String;
-    dob: String;
-    breed: String;
+    name: string;
+    type: string;
+    dob: string;
+    breed: string;
     owner: Owner;
 
-    constructor(id: number, ownerId: number, name: String, type: String, dob: String, breed: String, owner: Owner) {
+    constructor(id: number, ownerId: number, name: string, type: string, dob: string, breed: string, owner: Owner) {
         this.id = id;
         this.ownerId = ownerId;
         this.name = name;

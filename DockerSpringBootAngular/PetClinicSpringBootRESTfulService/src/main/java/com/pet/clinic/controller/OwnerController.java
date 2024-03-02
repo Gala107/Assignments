@@ -21,8 +21,8 @@ public class OwnerController {
 	@Autowired
 	private OwnerService ownerService;
 
-	@GetMapping(value = "getOwner/{findBy}/{ownerInfo}")
-	public Owner getOwnerByPhone(@PathVariable("findBy") String findBy, @PathVariable("ownerInfo") String ownerInfo) {
+	@GetMapping(value = "getOwner/{findBy}/{ownerInfo}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Owner getOwner(@PathVariable("findBy") String findBy, @PathVariable("ownerInfo") String ownerInfo) {
 		if ("phone".equals(findBy)) {
 			return ownerService.getOwnerByPhone(ownerInfo);
 		} else if ("email".equals(findBy)) {
@@ -31,9 +31,15 @@ public class OwnerController {
 		return null;
 	}
 
-	@PostMapping(value = "createOwner", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String createOwner(@RequestBody Owner owner) {
-		Integer id = ownerService.saveOwner(owner).getId();
-		return id.toString();
+//	@PostMapping(value = "createOwner", consumes = MediaType.APPLICATION_JSON_VALUE)
+//	public String createOwner(@RequestBody Owner owner) {
+//		Integer id = ownerService.saveOwner(owner).getId();
+//		return id.toString();
+//	}
+	
+
+	@PostMapping(value = "createOwner", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Owner createOwner(@RequestBody Owner owner) {
+		return ownerService.saveOwner(owner);
 	}
 }

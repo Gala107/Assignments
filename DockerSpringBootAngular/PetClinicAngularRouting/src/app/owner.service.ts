@@ -12,16 +12,18 @@ export class OwnerService {
 
   constructor(private http: HttpClient) {}
 
-  findOwnerByPhone(phone: String): Owner {
-    return new Owner(0, "Gala Winters", "11th Cherry St, Westwood, MO", "123 123 1234", "gala@me.com");
+  findOwner(findBy: any, ownerInfo: any): Observable<Owner> {
+    let endPoint = "/owner/getOwner/";
+    return this.http.get<Owner>(this.baseUrl + endPoint + findBy + "/" + ownerInfo);
   }
 
-  findOwnerByEmail(email: String): Owner {
-    return new Owner(0, "Walter Couff", "89 Barry Rd., Liberty, MO", "456", "walter@me.com");
-  }
+  // saveOwner(owner: any): Observable<string> {
+  //   let endPoint = "/owner/createOwner";
+  //   return this.http.post(this.baseUrl + endPoint, owner,{responseType:"text"});
+  // }
 
-  saveOwner(owner: any): Observable<String> {
+  saveOwner(owner: any): Observable<Owner> {
     let endPoint = "/owner/createOwner";
-    return this.http.post<String>(this.baseUrl + endPoint, owner);
+    return this.http.post<Owner>(this.baseUrl + endPoint, owner);
   }
 }

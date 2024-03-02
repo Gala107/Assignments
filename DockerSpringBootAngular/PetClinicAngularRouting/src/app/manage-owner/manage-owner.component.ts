@@ -16,8 +16,8 @@ export class ManageOwnerComponent implements OnInit, OnDestroy  {
   ownerId = 0;
   isPetForm = false;
   isPetSaved = false;
+  pets: Array<Pet> = [];
   subscription: Subscription = new Subscription();
-  msg = "";
 
   ownerForm = new FormGroup({
     name: new FormControl(),
@@ -45,16 +45,10 @@ export class ManageOwnerComponent implements OnInit, OnDestroy  {
 
   saveOwner() {
     this.subscription = this.ownerService.saveOwner(this.ownerForm.value).subscribe({
-      next: (result:any) => {this.ownerId = result},
+      next: (result:Owner) => {this.ownerForm.patchValue(result); this.ownerId = result.id},
       error: (error:any) => {console.log(error)},
       complete: () => console.log("New Owner is saved successfully")
     })
-
-    console.log("Owner ID: " + this.ownerId);
-  }
-
-  addPetForm() {
-    this.isPetForm = true;
   }
 
   savePet() {
