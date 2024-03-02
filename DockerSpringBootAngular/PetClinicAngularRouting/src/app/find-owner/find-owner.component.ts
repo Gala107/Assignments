@@ -14,7 +14,7 @@ export class FindOwnerComponent {
 
   findOwnerForm = new FormGroup({
     findBy: new FormControl(''),
-    clientInfo: new FormControl('')
+    ownerInfo: new FormControl('')
   })
 
   constructor(private ownerService: OwnerService, private router: Router) {}
@@ -30,7 +30,7 @@ export class FindOwnerComponent {
 
     let path = '';
     if (owner == undefined) {
-      this.msg = 'No specified owner is found in the system. Please create New Owner.'
+      this.msg = 'No owner is found in the system for specified criteria. Please create New Owner.'
       path = 'findOwner';
     } else {
       path = 'manageOwner'
