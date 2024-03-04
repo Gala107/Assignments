@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  mysql-container:
+    image: mysql:8
+    container_name: pet_clinic_db_container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pet_clinic_rs
+    ports:
+      - 3307:3306
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+  angular-container:
+    build: ./frontend/PetClinicAngularRouting/
+    container_name: pet_clinic_angular_container
+    image: gala107/pet_clinic_angular:1.0
+    ports:
+      - 85:80
+    restart: always  
+  springboot-container:
+    build: ./backend/PetClinicSpringBootRESTfulService/
+    container_name: pet_clinic_sboot_container 
+    image: gala107/pet_clinic_sboot:1.0
+    depends_on:
+      - pet_clinic_db_container
+    ports:
+      - 8181:8181
+    restart: always
+volumes:
+  db:
+   driver: local 
