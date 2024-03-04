@@ -10,9 +10,10 @@ import { Owner } from '../owner';
   templateUrl: './find-owner.component.html',
   styleUrls: ['./find-owner.component.css']
 })
-export class FindOwnerComponent implements OnInit, OnDestroy  {
+export class FindOwnerComponent implements OnInit, OnDestroy {
 
-  msg: String = '';
+  msg: string = "";
+  ownerId: number = 0;
   subscription: Subscription = new Subscription();
 
   findOwnerForm = new FormGroup({
@@ -23,7 +24,7 @@ export class FindOwnerComponent implements OnInit, OnDestroy  {
   constructor(private ownerService: OwnerService, private router: Router) { }
 
   ngOnInit(): void {
-  
+
   }
 
   ngOnDestroy(): void {
@@ -32,20 +33,20 @@ export class FindOwnerComponent implements OnInit, OnDestroy  {
 
   findOwner() {
     let findCriteria = this.findOwnerForm.value;
-    let nameFound = "";
     this.subscription = this.ownerService.findOwner(findCriteria.findBy, findCriteria.ownerInfo).subscribe({
-      next: (result:Owner) => {nameFound = result.name},
-      error: (error:any) => {console.log(error)},
-      complete: () => {}
+      next: (result: Owner) => {
+        this.ownerId = result.id;
+        let path;
+        if (this.ownerId > 0) {
+          path = 'manageOwner/' + this.ownerId;
+        } else {
+          this.msg = 'No owner is found in the system for specified criteria. Please create New Owner.'
+          path = 'findOwner';
+        } 
+        this.router.navigate([path], { skipLocationChange: true });
+      },
+      error: (error: any) => { console.log(error) },
+      complete: () => { }
     });
-
-    let path = 'manageOwner'
-    // if (owner == undefined) {
-    //   this.msg = 'No owner is found in the system for specified criteria. Please create New Owner.'
-    //   path = 'findOwner';
-    // } else {
-    //   path = 'manageOwner'
-    // }
-    this.router.navigate([path], { skipLocationChange: true });
   }
 }

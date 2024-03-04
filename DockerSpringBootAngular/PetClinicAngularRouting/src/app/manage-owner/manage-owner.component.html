@@ -1,27 +1,28 @@
 <h1>Owner Information</h1>
 <form [formGroup]="ownerForm" (ngSubmit)="saveOwner()">
+    <input type="hidden" name="id" formControlName="id" >
     <table>
         <tr>
             <td>
                 <label for="name">Name</label><br />
-                <input type="text" id="name" placeholder="John Silvester" [readonly]="ownerId > 0" formControlName="name" />
+                <input type="text" id="name" [readonly]="ownerId > 0" formControlName="name" />
             </td>
         </tr>
         <tr>
             <td>
                 <label for="address">Address</label><br />
-                <input type="text" id="address" placeholder="12 W North Rd" [readonly]="ownerId > 0" formControlName="address" />
+                <input type="text" id="address" [readonly]="ownerId > 0" formControlName="address" />
             </td>
         </tr>
         <tr>
             <td>
                 <div><label for="phone">Phone</label><br />
-                    <input type="text" id="phone" placeholder="123 323 3214" [readonly]="ownerId > 0" formControlName="phone" />
+                    <input type="text" id="phone" [readonly]="ownerId > 0" formControlName="phone" />
                 </div>
             </td>
             <td>
                 <div><label for="email">Email</label><br />
-                    <input type="text" id="email" placeholder="john@me.com" [readonly]="ownerId > 0" formControlName="email" />
+                    <input type="text" id="email" [readonly]="ownerId > 0" formControlName="email" />
                 </div>
             </td>
         </tr>
@@ -29,27 +30,36 @@
             <td><input *ngIf="ownerId == 0" type="submit" value="Save" /></td>
         </tr>
         <tr>
-            <td><a *ngIf="ownerId > 0 && (!isPetForm || isPetSaved)" (click)="isPetForm = true"><u>Add a Pet</u></a></td>
+            <td><a *ngIf="ownerId > 0 && !isPetForm" (click)="resetPetForm()"><u>Add a Pet</u></a>
+            </td>
         </tr>
     </table>
 </form>
 
-<form *ngIf="isPetForm" [formGroup]="petForm" (ngSubmit)="savePet()">
-    <table>
+<form [formGroup]="petForm" (ngSubmit)="savePet()">
+    <table *ngIf="pets.length > 0 || isPetForm">
         <tr><br></tr>
         <tr>
             <th>Pet Name</th>
-            <th>Type</th>
+            <th>Type of Pet</th>
             <th>Breed</th>
             <th>DOB</th>
             <th></th>
         </tr>
-        <tr>
-            <td><input id="petName" placeholder="Charlie" [readonly]="isPetSaved" formControlName="petName" /></td>
-            <td><input id="type" placeholder="Dog" [readonly]="isPetSaved" formControlName="type" /></td>
-            <td><input id="breed" placeholder="Cockapoo" [readonly]="isPetSaved" formControlName="breed" /></td>
-            <td><input id="dob" placeholder="June 10, 2023" [readonly]="isPetSaved" formControlName="dob" /></td>
-            <td><input *ngIf="!isPetSaved" type="submit" value="Save" /></td>
+        <tr *ngFor="let pet of pets">
+            <td><a routerLink="/petVisit/{{pet.id}}" skipLocationChange="true">{{pet.name}}</a></td>
+            <td>{{pet.type}}</td>
+            <td>{{pet.breed}}</td>
+            <td>{{pet.dob}}</td>
+            <td></td>
+        </tr>
+
+        <tr *ngIf="isPetForm">
+            <td><input id="name" formControlName="name" /></td>
+            <td><input id="type" formControlName="type" /></td>
+            <td><input id="breed" formControlName="breed" /></td>
+            <td><input id="dob" formControlName="dob" /></td>
+            <td><input type="submit" value="Save" /></td>
         </tr>
     </table>
 </form>

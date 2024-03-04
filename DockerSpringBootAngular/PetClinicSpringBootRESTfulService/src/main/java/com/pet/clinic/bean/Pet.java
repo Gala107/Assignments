@@ -1,12 +1,15 @@
 package com.pet.clinic.bean;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Scope;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 @Scope("prototype")
@@ -19,20 +22,20 @@ public class Pet {
 	private String type;
 	private String breed;
 	private String dob;
+	private Integer ownerId;
 	
-	@ManyToOne
-	private Owner owner;
+	@OneToMany(mappedBy = "petId", cascade = CascadeType.ALL)
+	private List<Visit> visits;
 	
 	public Pet() {
 
 	}
-	public Pet(Integer id, String name, String type, String breed, String dob, Owner owner) {
+	public Pet(Integer id, String name, String type, String breed, String dob) {
 		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.breed = breed;
 		this.dob = dob;
-		this.owner = owner;
 	}
 	public Integer getId() {
 		return id;
@@ -64,10 +67,16 @@ public class Pet {
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
-	public Owner getOwner() {
-		return owner;
+	public List<Visit> getVisits() {
+		return visits;
 	}
-	public void setOwner(Owner owner) {
-		this.owner = owner;
+	public void setVisits(List<Visit> visits) {
+		this.visits = visits;
+	}
+	public Integer getOwnerId() {
+		return ownerId;
+	}
+	public void setOwnerId(Integer ownerId) {
+		this.ownerId = ownerId;
 	}
 }

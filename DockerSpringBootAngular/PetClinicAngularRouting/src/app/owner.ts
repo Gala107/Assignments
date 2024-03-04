@@ -2,17 +2,14 @@ import { Pet } from "./pet";
 
 export class Owner {
 
-    id: number;
-    name: string;
-    address: string;
-    phone: string;
-    email: string;
+    id = 0;
+    name = '';
+    address = '';
+    phone = '';
+    email = '';
+    pets: Pet[] = [];
 
-    constructor(id:number, name: string, address: string, phone: string, email: string) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
+    public constructor(init?: Partial<Owner>) {
+        Object.assign(this, init);
     }
 }

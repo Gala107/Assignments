@@ -1,0 +1,57 @@
+<h1>Pet Information</h1>
+<table>
+    <tr>
+        <td>
+            <label for="name">Name</label><br />
+            <input type="text" id="name" value="{{pet.name}}" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="type">Type of Pet</label><br />
+            <input type="text" id="type" value="{{pet.type}}" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div><label for="breed">Breed</label><br />
+                <input type="text" id="breed" value="{{pet.breed}}" />
+            </div>
+        </td>
+    <tr>
+        <td>
+            <div><label for="dob">DOB</label><br />
+                <input type="text" id="dob" value="{{pet.dob}}" />
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><a *ngIf="petId > 0 && !isVisitForm" (click)="resetVisitForm()"><u>Add a Visit</u></a>
+        </td>
+    </tr>
+</table>
+
+<form [formGroup]="visitForm" (ngSubmit)="saveVisit()">
+    <table *ngIf="visits.length > 0 || isVisitForm">
+        <tr><br></tr>
+        <tr>
+            <th>Visit Date</th>
+            <th>Time</th>
+            <th>Reason</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let visit of visits">
+            <td>{{visit.date}}</td>
+            <td>{{visit.time}}</td>
+            <td>{{visit.reason}}</td>
+            <td></td>
+        </tr>
+
+        <tr *ngIf="isVisitForm">
+            <td><input id="date" formControlName="date" /></td>
+            <td><input id="time" formControlName="time" /></td>
+            <td><input id="reason" formControlName="reason" /></td>
+            <td><input type="submit" value="Save" /></td>
+        </tr>
+    </table>
+</form>

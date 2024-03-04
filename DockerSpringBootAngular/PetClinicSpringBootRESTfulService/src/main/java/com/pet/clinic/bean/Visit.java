@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 @Scope("prototype")
@@ -18,22 +17,17 @@ public class Visit {
 	private String date;
 	private String time;
 	private String reason;
-	
-	@ManyToOne
-	private Owner owner;
-	@ManyToOne
-	private Pet pet;
+	private Integer petId;
 	
 	public Visit() {
 
 	}
-	public Visit(Integer id, String date, String time, String reason, Owner owner, Pet pet) {
+	public Visit(Integer id, String date, String time, String reason, Integer petId) {
 		this.id = id;
-		this.owner = owner;
-		this.pet = pet;
 		this.date = date;
 		this.time = time;
 		this.reason = reason;
+		this.petId = petId;
 	}
 	public Integer getId() {
 		return id;
@@ -59,16 +53,10 @@ public class Visit {
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
-	public Owner getOwner() {
-		return owner;
+	public Integer getPetId() {
+		return petId;
 	}
-	public void setOwner(Owner owner) {
-		this.owner = owner;
-	}
-	public Pet getPet() {
-		return pet;
-	}
-	public void setPet(Pet pet) {
-		this.pet = pet;
+	public void setPetId(Integer petId) {
+		this.petId = petId;
 	}
 }

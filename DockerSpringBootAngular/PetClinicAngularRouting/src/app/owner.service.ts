@@ -8,22 +8,27 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class OwnerService {
-  baseUrl = "http://localhost:8282";
+  baseUrl = "http://localhost:8282/petclinic/";
 
   constructor(private http: HttpClient) {}
 
   findOwner(findBy: any, ownerInfo: any): Observable<Owner> {
-    let endPoint = "/owner/getOwner/";
+    let endPoint = "getOwner/";
     return this.http.get<Owner>(this.baseUrl + endPoint + findBy + "/" + ownerInfo);
   }
 
-  // saveOwner(owner: any): Observable<string> {
-  //   let endPoint = "/owner/createOwner";
-  //   return this.http.post(this.baseUrl + endPoint, owner,{responseType:"text"});
-  // }
+  findOwnerById(id: any): Observable<Owner> {
+    let endPoint = "getOwnerById/"
+    return this.http.get<Owner>(this.baseUrl + endPoint + id);
+  }
 
   saveOwner(owner: any): Observable<Owner> {
-    let endPoint = "/owner/createOwner";
+    let endPoint = "createOwner";
     return this.http.post<Owner>(this.baseUrl + endPoint, owner);
+  }
+
+  addPet(pet: Pet): Observable<Owner> {
+    let endPoint = "addPet";
+    return this.http.post<Owner>(this.baseUrl + endPoint, pet);
   }
 }

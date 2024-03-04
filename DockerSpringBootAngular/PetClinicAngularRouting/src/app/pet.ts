@@ -1,22 +1,17 @@
 import { Owner } from "./owner";
+import { Visit } from "./visit";
 
 export class Pet {
 
-    id: number;
-    ownerId: number;
-    name: string;
-    type: string;
-    dob: string;
-    breed: string;
-    owner: Owner;
+    id = 0;
+    name = '';
+    type = '';
+    dob = '';
+    breed = '';
+    ownerId = 0;
+    visits: Visit[] = [];
 
-    constructor(id: number, ownerId: number, name: string, type: string, dob: string, breed: string, owner: Owner) {
-        this.id = id;
-        this.ownerId = ownerId;
-        this.name = name;
-        this.type = type;
-        this.dob = dob;
-        this.breed = breed;
-        this.owner = owner;
+    public constructor(init?: Partial<Pet>) {
+        Object.assign(this, init);
     }
 }
